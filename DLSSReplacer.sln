@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33403.182
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "DLSSReplacer", "DLSSReplacer\DLSSReplacer.vbproj", "{B7974AFC-D42E-4869-8F85-A195819AA214}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B7974AFC-D42E-4869-8F85-A195819AA214}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7974AFC-D42E-4869-8F85-A195819AA214}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7974AFC-D42E-4869-8F85-A195819AA214}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7974AFC-D42E-4869-8F85-A195819AA214}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {28EE08E2-A545-4FE4-B953-E40F162ABFFA}
+	EndGlobalSection
+EndGlobal
