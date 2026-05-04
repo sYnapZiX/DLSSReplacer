@@ -33,6 +33,8 @@ Partial Class MainWindow
         Me.BackupVersionHeader = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.TypeHeader = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.FileListMenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.OfflineModeToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator10 = New System.Windows.Forms.ToolStripSeparator()
         Me.AutoBackupToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ForceReplaceToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator()
@@ -56,11 +58,15 @@ Partial Class MainWindow
         Me.SaveLogFileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ClearConsoleToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator8 = New System.Windows.Forms.ToolStripSeparator()
+        Me.OfflineModeToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator11 = New System.Windows.Forms.ToolStripSeparator()
         Me.ExtractResourceToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.DirectStorageToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.DLSS1ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.DLSS4ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.MainMenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.OfflineModeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator9 = New System.Windows.Forms.ToolStripSeparator()
         Me.AutoBackupToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ForceReplaceToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator6 = New System.Windows.Forms.ToolStripSeparator()
@@ -123,8 +129,18 @@ Partial Class MainWindow
         'FileListMenu
         '
         resources.ApplyResources(Me.FileListMenu, "FileListMenu")
-        Me.FileListMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AutoBackupToolStripMenuItem1, Me.ForceReplaceToolStripMenuItem1, Me.ToolStripSeparator5, Me.RemoveToolStripMenuItem, Me.RemoveAllToolStripMenuItem, Me.ToolStripSeparator1, Me.RestoreBackupToolStripMenuItem, Me.CreateBackupToolStripMenuItem, Me.DeleteBackupToolStripMenuItem, Me.ToolStripSeparator7, Me.ExtractResourceToolStripMenuItem1, Me.ToolStripSeparator2, Me.ShowConsoleToolStripMenuItem})
+        Me.FileListMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OfflineModeToolStripMenuItem1, Me.ToolStripSeparator10, Me.AutoBackupToolStripMenuItem1, Me.ForceReplaceToolStripMenuItem1, Me.ToolStripSeparator5, Me.RemoveToolStripMenuItem, Me.RemoveAllToolStripMenuItem, Me.ToolStripSeparator1, Me.RestoreBackupToolStripMenuItem, Me.CreateBackupToolStripMenuItem, Me.DeleteBackupToolStripMenuItem, Me.ToolStripSeparator7, Me.ExtractResourceToolStripMenuItem1, Me.ToolStripSeparator2, Me.ShowConsoleToolStripMenuItem})
         Me.FileListMenu.Name = "DLSSDLLLISTMENU"
+        '
+        'OfflineModeToolStripMenuItem1
+        '
+        resources.ApplyResources(Me.OfflineModeToolStripMenuItem1, "OfflineModeToolStripMenuItem1")
+        Me.OfflineModeToolStripMenuItem1.Name = "OfflineModeToolStripMenuItem1"
+        '
+        'ToolStripSeparator10
+        '
+        resources.ApplyResources(Me.ToolStripSeparator10, "ToolStripSeparator10")
+        Me.ToolStripSeparator10.Name = "ToolStripSeparator10"
         '
         'AutoBackupToolStripMenuItem1
         '
@@ -223,7 +239,7 @@ Partial Class MainWindow
         'ConsoleMenu
         '
         resources.ApplyResources(Me.ConsoleMenu, "ConsoleMenu")
-        Me.ConsoleMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ShowConsoleToolStripMenuItem2, Me.ToolStripSeparator3, Me.SaveLogFileToolStripMenuItem, Me.ClearConsoleToolStripMenuItem, Me.ToolStripSeparator8, Me.ExtractResourceToolStripMenuItem2})
+        Me.ConsoleMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ShowConsoleToolStripMenuItem2, Me.ToolStripSeparator3, Me.SaveLogFileToolStripMenuItem, Me.ClearConsoleToolStripMenuItem, Me.ToolStripSeparator8, Me.OfflineModeToolStripMenuItem2, Me.ToolStripSeparator11, Me.ExtractResourceToolStripMenuItem2})
         Me.ConsoleMenu.Name = "ContextMenuStrip1"
         '
         'ShowConsoleToolStripMenuItem2
@@ -251,6 +267,16 @@ Partial Class MainWindow
         resources.ApplyResources(Me.ToolStripSeparator8, "ToolStripSeparator8")
         Me.ToolStripSeparator8.Name = "ToolStripSeparator8"
         '
+        'OfflineModeToolStripMenuItem2
+        '
+        resources.ApplyResources(Me.OfflineModeToolStripMenuItem2, "OfflineModeToolStripMenuItem2")
+        Me.OfflineModeToolStripMenuItem2.Name = "OfflineModeToolStripMenuItem2"
+        '
+        'ToolStripSeparator11
+        '
+        resources.ApplyResources(Me.ToolStripSeparator11, "ToolStripSeparator11")
+        Me.ToolStripSeparator11.Name = "ToolStripSeparator11"
+        '
         'ExtractResourceToolStripMenuItem2
         '
         resources.ApplyResources(Me.ExtractResourceToolStripMenuItem2, "ExtractResourceToolStripMenuItem2")
@@ -275,8 +301,18 @@ Partial Class MainWindow
         'MainMenu
         '
         resources.ApplyResources(Me.MainMenu, "MainMenu")
-        Me.MainMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AutoBackupToolStripMenuItem, Me.ForceReplaceToolStripMenuItem, Me.ToolStripSeparator6, Me.ExtractResourceToolStripMenuItem, Me.ToolStripSeparator4, Me.ShowConsoleToolStripMenuItem1})
+        Me.MainMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OfflineModeToolStripMenuItem, Me.ToolStripSeparator9, Me.AutoBackupToolStripMenuItem, Me.ForceReplaceToolStripMenuItem, Me.ToolStripSeparator6, Me.ExtractResourceToolStripMenuItem, Me.ToolStripSeparator4, Me.ShowConsoleToolStripMenuItem1})
         Me.MainMenu.Name = "ContextMenuStrip1"
+        '
+        'OfflineModeToolStripMenuItem
+        '
+        resources.ApplyResources(Me.OfflineModeToolStripMenuItem, "OfflineModeToolStripMenuItem")
+        Me.OfflineModeToolStripMenuItem.Name = "OfflineModeToolStripMenuItem"
+        '
+        'ToolStripSeparator9
+        '
+        resources.ApplyResources(Me.ToolStripSeparator9, "ToolStripSeparator9")
+        Me.ToolStripSeparator9.Name = "ToolStripSeparator9"
         '
         'AutoBackupToolStripMenuItem
         '
@@ -388,4 +424,10 @@ Partial Class MainWindow
     Friend WithEvents DirectStorageToolStripMenuItem2 As ToolStripMenuItem
     Friend WithEvents DLSS1ToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents DLSS4ToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents OfflineModeToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator10 As ToolStripSeparator
+    Friend WithEvents OfflineModeToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator9 As ToolStripSeparator
+    Friend WithEvents OfflineModeToolStripMenuItem2 As ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator11 As ToolStripSeparator
 End Class

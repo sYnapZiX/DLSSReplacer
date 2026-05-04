@@ -133,8 +133,14 @@
     <value>Typ</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="FileListMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>203, 226</value>
+  <data name="OfflineModeToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>202, 22</value>
+  </data>
+  <data name="OfflineModeToolStripMenuItem1.Text" xml:space="preserve">
+    <value>Offline Modus</value>
+  </data>
+  <data name="ToolStripSeparator10.Size" type="System.Drawing.Size, System.Drawing">
+    <value>199, 6</value>
   </data>
   <data name="AutoBackupToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
     <value>202, 22</value>
@@ -202,14 +208,17 @@
   <data name="ShowConsoleToolStripMenuItem.Text" xml:space="preserve">
     <value>Zeige Konsole</value>
   </data>
-  <data name="ConsoleMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 104</value>
+  <data name="FileListMenu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>203, 254</value>
   </data>
   <data name="ShowConsoleToolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
     <value>183, 22</value>
   </data>
   <data name="ShowConsoleToolStripMenuItem2.Text" xml:space="preserve">
     <value>Zeige Konsole</value>
+  </data>
+  <data name="ToolStripSeparator3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 6</value>
   </data>
   <data name="SaveLogFileToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>183, 22</value>
@@ -223,23 +232,35 @@
   <data name="ClearConsoleToolStripMenuItem.Text" xml:space="preserve">
     <value>Konsole leeren</value>
   </data>
+  <data name="ToolStripSeparator8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 6</value>
+  </data>
+  <data name="OfflineModeToolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>183, 22</value>
+  </data>
+  <data name="OfflineModeToolStripMenuItem2.Text" xml:space="preserve">
+    <value>Offline Modus</value>
+  </data>
+  <data name="ToolStripSeparator11.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 6</value>
+  </data>
   <data name="ExtractResourceToolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
     <value>183, 22</value>
   </data>
   <data name="ExtractResourceToolStripMenuItem2.Text" xml:space="preserve">
     <value>Resource extrahieren</value>
   </data>
-  <data name="DirectStorageToolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 22</value>
+  <data name="ConsoleMenu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>184, 132</value>
   </data>
-  <data name="DLSS1ToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 22</value>
+  <data name="OfflineModeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>183, 22</value>
   </data>
-  <data name="DLSS4ToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 22</value>
+  <data name="OfflineModeToolStripMenuItem.Text" xml:space="preserve">
+    <value>Offline Modus</value>
   </data>
-  <data name="MainMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 104</value>
+  <data name="ToolStripSeparator9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 6</value>
   </data>
   <data name="AutoBackupToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>183, 22</value>
@@ -253,26 +274,26 @@
   <data name="ForceReplaceToolStripMenuItem.Text" xml:space="preserve">
     <value>Ersetzen erzwingen</value>
   </data>
+  <data name="ToolStripSeparator6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 6</value>
+  </data>
   <data name="ExtractResourceToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>183, 22</value>
   </data>
   <data name="ExtractResourceToolStripMenuItem.Text" xml:space="preserve">
     <value>Resource extrahieren</value>
   </data>
-  <data name="DirectStorageToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 22</value>
-  </data>
-  <data name="NVIDIADLSS1ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 22</value>
-  </data>
-  <data name="NVIDIADLSS4ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 22</value>
+  <data name="ToolStripSeparator4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 6</value>
   </data>
   <data name="ShowConsoleToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
     <value>183, 22</value>
   </data>
   <data name="ShowConsoleToolStripMenuItem1.Text" xml:space="preserve">
     <value>Zeige Konsole</value>
+  </data>
+  <data name="MainMenu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>184, 132</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

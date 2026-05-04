@@ -1,8 +1,10 @@
 ﻿Imports System.IO
 Imports System.IO.Compression
+Imports System.Net
 Imports DLSSReplacer.My
 
 Public Class MainWindow
+    Private ReadOnly Language As String = Threading.Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName
     Private ReadOnly Temp As String = Path.GetTempPath
 
     Private ReadOnly IncludedVersionDLSS4 As String = "310.6.0.0"
@@ -16,7 +18,10 @@ Public Class MainWindow
     Private ReadOnly CleanupDirectories As String() = {Temp & "dlss1",
                                                        Temp & "dlss4",
                                                        Temp & "dstorage123"}
+    Private CurrentResource As Byte()
+    Private CurrentResourceName As String = String.Empty
 
+    Private ReadOnly URL_OnlineResource As String = "https://github.com/sYnapZiX/DLSSReplacer/blob/main/DLSSReplacer/Resources/"
     Private Function ProtectedGame(Path As String) As Boolean
         Return Path.Contains("Call of Duty") OrElse
                Path.Contains("Call Of Duty") OrElse
@@ -61,7 +66,13 @@ Public Class MainWindow
             If PathBrowserResult = DialogResult.OK Then
                 Enabled = False
                 UseWaitCursor = True
-                ScanButton.Text = "Scanning..."
+                If Language = "de" Then
+                    ScanButton.Text = "Scanne..."
+                    ReplaceButton.Text = "Scanne..."
+                Else
+                    ScanButton.Text = "Scanning..."
+                    ReplaceButton.Text = "Scanning..."
+                End If
                 ConsoleBox.ForeColor = Color.Black
                 ConsoleBox.AppendText("Scanning for replaceable libraries..." & vbNewLine & vbNewLine)
                 Dim FilteredDLLPaths As New List(Of String)
@@ -172,7 +183,13 @@ Public Class MainWindow
                 FilteredDLLPaths.Clear()
                 ConsoleBox.AppendText(vbNewLine & "Finished!" & vbNewLine & "Found: " & FoundEntries.ToString & " replaceable libraries." & vbNewLine & vbNewLine)
                 ConsoleBox.ForeColor = Color.Chartreuse
-                ScanButton.Text = "Scan Drive/Folder..."
+                If Language = "de" Then
+                    ScanButton.Text = "Laufwerk/Ordner scannen..."
+                    ReplaceButton.Text = "Ersetzen"
+                Else
+                    ScanButton.Text = "Scan Drive/Folder..."
+                    ReplaceButton.Text = "Replace"
+                End If
                 UseWaitCursor = False
                 Enabled = True
                 ReplaceButton.Enabled = True
@@ -182,7 +199,13 @@ Public Class MainWindow
     Private Sub ReplaceButton_Click(sender As Object, e As EventArgs) Handles ReplaceButton.Click
         Enabled = False
         UseWaitCursor = True
-        ReplaceButton.Text = "Replacing..."
+        If Language = "de" Then
+            ScanButton.Text = "Ersetze..."
+            ReplaceButton.Text = "Ersetze..."
+        Else
+            ScanButton.Text = "Replacing..."
+            ReplaceButton.Text = "Replacing..."
+        End If
         ConsoleBox.ForeColor = Color.Black
         ConsoleBox.AppendText("Replacing libraries..." & vbNewLine & vbNewLine)
         Dim ReplacedDLLsDirectStorage As Integer = 0
@@ -196,7 +219,7 @@ Public Class MainWindow
                 Dim DLLFile As String = FilePathList.Items.Item(i).SubItems(0).Text
                 Dim CurrentVersion As String = FilePathList.Items.Item(i).SubItems(1).Text
                 Dim IncludedVersion As String = FilePathList.Items.Item(i).SubItems(2).Text
-                If ForceReplaceToolStripMenuItem.Checked OrElse (CurrentVersion <> IncludedVersion AndAlso Not IncludedVersion = "None") Then
+                If ForceReplaceToolStripMenuItem.Checked OrElse (CurrentVersion <> IncludedVersion AndAlso Not IncludedVersion = "None" AndAlso Not IncludedVersion = "Keiner") Then
                     If DLLFile.EndsWith("nvngx_dlss.dll") Then
                         If CurrentVersion.StartsWith("4") Then ' ################################################################################################################################################################################################################# DLSS 4
                             ReplaceDLL(My.Resources.dlss4, "dlss4", "nvngx_dlss.dll", DLLFile, FilePathList.Items.Item(i).SubItems(1), FilePathList.Items.Item(i).SubItems(2), FilePathList.Items.Item(i).SubItems(3))
@@ -250,19 +273,39 @@ Public Class MainWindow
             CleanUp()
             UseWaitCursor = False
             ConsoleBox.AppendText(vbNewLine & "Finished!" & vbNewLine & "Replaced: " & (ReplacedDLLsDLSS3 + ReplacedDLLsDLSS2 + ReplacedDLLsDLSS1 + ReplacedDLLsDirectStorage).ToString & " libraries." & vbNewLine & vbNewLine)
-            MessageBox.Show("Done!" & vbNewLine &
+            If Language = "de" Then
+                ScanButton.Text = "Laufwerk/Ordner scannen..."
+                ReplaceButton.Text = "Ersetzen"
+                MessageBox.Show("Abgeschlossen!" & vbNewLine &
+                            "DLSS 4 Libraries: " & ReplacedDLLsDLSS4.ToString & " ersetzt." & vbNewLine &
+                            "DLSS 3 Libraries: " & ReplacedDLLsDLSS3.ToString & " ersetzt." & vbNewLine &
+                            "DLSS 2 Libraries: " & ReplacedDLLsDLSS2.ToString & " ersetzt." & vbNewLine &
+                            "DLSS 1 Libraries: " & ReplacedDLLsDLSS1.ToString & " ersetzt." & vbNewLine &
+                            "Direct-Storage Libraries: " & ReplacedDLLsDirectStorage.ToString & " ersetzt.", "DLSS Replacer", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Else
+                ScanButton.Text = "Scan Drive/Folder..."
+                ReplaceButton.Text = "Replace"
+                MessageBox.Show("Done!" & vbNewLine &
                             "DLSS 4 Libraries: " & ReplacedDLLsDLSS4.ToString & " replaced." & vbNewLine &
                             "DLSS 3 Libraries: " & ReplacedDLLsDLSS3.ToString & " replaced." & vbNewLine &
                             "DLSS 2 Libraries: " & ReplacedDLLsDLSS2.ToString & " replaced." & vbNewLine &
                             "DLSS 1 Libraries: " & ReplacedDLLsDLSS1.ToString & " replaced." & vbNewLine &
                             "Direct-Storage Libraries: " & ReplacedDLLsDirectStorage.ToString & " replaced.", "DLSS Replacer", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            End If
         Catch
             UseWaitCursor = False
             ConsoleBox.AppendText(vbNewLine & "Failed!" & vbNewLine & vbNewLine)
             ConsoleBox.ForeColor = Color.Chartreuse
-            MessageBox.Show("Error!", "DLSS Replacer", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            If Language = "de" Then
+                ScanButton.Text = "Laufwerk/Ordner scannen..."
+                ReplaceButton.Text = "Ersetzen"
+                MessageBox.Show("Fehler!", "DLSS Replacer", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Else
+                ScanButton.Text = "Scan Drive/Folder..."
+                ReplaceButton.Text = "Replace"
+                MessageBox.Show("Error!", "DLSS Replacer", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
         End Try
-        ReplaceButton.Text = "Replace"
         Enabled = True
     End Sub
 
@@ -276,8 +319,12 @@ Public Class MainWindow
     ' ############################################################################################### ░▒▓███████▓▒░   ░▒▓█▓▒░   ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░     ░▒▓████████▓▒░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░ #####################################################################################################################################
     ' #######################################################################################################################################################################################################################################################################################################################################
     Private Sub MainWindow_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
-        Text = My.Application.Info.ProductName & " " & My.Application.Info.Version.Major & "." & My.Application.Info.Version.Minor
         ConsoleBox.AppendText("Ready for work! - " & Text & " - by sYnapZiX" & vbNewLine & vbNewLine)
+        Enabled = False
+        If GitHubUpdater.Check() Then
+            GitHubUpdater.Download()
+        End If
+        Enabled = True
     End Sub
     Private Sub CleanUp()
         For Each CleanupDirectory As String In CleanupDirectories
@@ -298,31 +345,54 @@ Public Class MainWindow
             If File.Exists(DLLFile & BackupExtension) Then
                 Dim DLLBackupVersionInfo As FileVersionInfo = FileVersionInfo.GetVersionInfo(DLLFile & BackupExtension)
                 Dim DLLBackupVersionInfoString As String = DLLBackupVersionInfo.FileVersion.Replace(",", ".")
-                If ProtectedGame(DLLFile) Then
-                    FilePathList.Items.Add(DLLFile).SubItems.AddRange({CurrentVersion, "Protected", DLLBackupVersionInfoString, Type})
-                ElseIf CurrentVersion = IncludedVersion Then
-                    FilePathList.Items.Add(DLLFile).SubItems.AddRange({CurrentVersion, "None", DLLBackupVersionInfoString, Type})
+                If Language = "de" Then
+                    If ProtectedGame(DLLFile) Then
+                        FilePathList.Items.Add(DLLFile).SubItems.AddRange({CurrentVersion, "Geschützt", DLLBackupVersionInfoString, Type})
+                    ElseIf CurrentVersion = IncludedVersion Then
+                        FilePathList.Items.Add(DLLFile).SubItems.AddRange({CurrentVersion, "Keiner", DLLBackupVersionInfoString, Type})
+                    Else
+                        FilePathList.Items.Add(DLLFile).SubItems.AddRange({CurrentVersion, IncludedVersion, DLLBackupVersionInfoString, Type})
+                    End If
                 Else
-                    FilePathList.Items.Add(DLLFile).SubItems.AddRange({CurrentVersion, IncludedVersion, DLLBackupVersionInfoString, Type})
+                    If ProtectedGame(DLLFile) Then
+                        FilePathList.Items.Add(DLLFile).SubItems.AddRange({CurrentVersion, "Protected", DLLBackupVersionInfoString, Type})
+                    ElseIf CurrentVersion = IncludedVersion Then
+                        FilePathList.Items.Add(DLLFile).SubItems.AddRange({CurrentVersion, "None", DLLBackupVersionInfoString, Type})
+                    Else
+                        FilePathList.Items.Add(DLLFile).SubItems.AddRange({CurrentVersion, IncludedVersion, DLLBackupVersionInfoString, Type})
+                    End If
                 End If
             Else
-                If ProtectedGame(DLLFile) Then
-                    FilePathList.Items.Add(DLLFile).SubItems.AddRange({CurrentVersion, "Protected", "None", Type})
-                ElseIf CurrentVersion = IncludedVersion Then
-                    FilePathList.Items.Add(DLLFile).SubItems.AddRange({CurrentVersion, "None", "None", Type})
+                If Language = "de" Then
+                    If ProtectedGame(DLLFile) Then
+                        FilePathList.Items.Add(DLLFile).SubItems.AddRange({CurrentVersion, "Geschützt", "Keines", Type})
+                    ElseIf CurrentVersion = IncludedVersion Then
+                        FilePathList.Items.Add(DLLFile).SubItems.AddRange({CurrentVersion, "Keiner", "Keines", Type})
+                    Else
+                        FilePathList.Items.Add(DLLFile).SubItems.AddRange({CurrentVersion, IncludedVersion, "Keines", Type})
+                    End If
                 Else
-                    FilePathList.Items.Add(DLLFile).SubItems.AddRange({CurrentVersion, IncludedVersion, "None", Type})
+                    If ProtectedGame(DLLFile) Then
+                        FilePathList.Items.Add(DLLFile).SubItems.AddRange({CurrentVersion, "Protected", "None", Type})
+                    ElseIf CurrentVersion = IncludedVersion Then
+                        FilePathList.Items.Add(DLLFile).SubItems.AddRange({CurrentVersion, "None", "None", Type})
+                    Else
+                        FilePathList.Items.Add(DLLFile).SubItems.AddRange({CurrentVersion, IncludedVersion, "None", Type})
+                    End If
                 End If
             End If
         Catch
         End Try
     End Sub
-    Private Sub ReplaceDLL(Resource As Byte(), ResourceName As String, ResourceDLL As String, DLLName As String, CurrentColumn As ListViewItem.ListViewSubItem, IncludedColumn As ListViewItem.ListViewSubItem, BackupColumn As ListViewItem.ListViewSubItem)
-        If IncludedColumn.Text = "Protected" Then Exit Sub
+    Private Async Sub ReplaceDLL(Resource As Byte(), ResourceName As String, ResourceDLL As String, DLLName As String, CurrentColumn As ListViewItem.ListViewSubItem, IncludedColumn As ListViewItem.ListViewSubItem, BackupColumn As ListViewItem.ListViewSubItem)
+        If IncludedColumn.Text = "Geschützt" OrElse
+           IncludedColumn.Text = "Protected" Then Exit Sub
+        CurrentResource = Resource
+        CurrentResourceName = ResourceName
         If Not Directory.Exists(Temp & "\" & ResourceName) Then
-            File.WriteAllBytes(Temp & "\" & ResourceName & ".zip", Resource)
-            ZipFile.ExtractToDirectory(Temp & "\" & ResourceName & ".zip", Temp)
-            File.Delete(Temp & "\" & ResourceName & ".zip")
+            File.WriteAllBytes(Temp & ResourceName & ".zip", Resource)
+            ZipFile.ExtractToDirectory(Temp & ResourceName & ".zip", Temp)
+            File.Delete(Temp & ResourceName & ".zip")
         End If
         If AutoBackupToolStripMenuItem.Checked Then
             If File.Exists(DLLName & BackupExtension) Then
@@ -479,30 +549,49 @@ Public Class MainWindow
             Dim ExtractFileResult As DialogResult = ExtractFile.ShowDialog
             If ExtractFileResult = DialogResult.OK Then
                 Dim ReplacedFiles As Integer = 0
+                CurrentResource = My.Resources.dstorage123
+                CurrentResourceName = "dstorage123"
                 Try
                     If Not Directory.Exists(Temp & "\dstorage123") Then
-                        File.WriteAllBytes(Temp & "\dstorage123.zip", My.Resources.dstorage123)
-                        ZipFile.ExtractToDirectory(Temp & "\dstorage123.zip", Temp)
-                        File.Delete(Temp & "\dstorage123.zip")
+                        File.WriteAllBytes(Temp & "dstorage123.zip", CurrentResource)
+                        ZipFile.ExtractToDirectory(Temp & "dstorage123.zip", Temp)
+                        File.Delete(Temp & "dstorage123.zip")
                     End If
                     If File.Exists(ExtractFile.SelectedPath & "\dstorage.v38") Then
                         If Not File.Exists(ExtractFile.SelectedPath & "\dstorage.bak") Then File.Move(ExtractFile.SelectedPath & "\dstorage.v38", ExtractFile.SelectedPath & "\dstorage.bak")
-                        File.Copy(Temp & "\dstorage123\dstorage.dll", ExtractFile.SelectedPath & "\dstorage.v38")
+                        File.Copy(Temp & "dstorage123\dstorage.dll", ExtractFile.SelectedPath & "\dstorage.v38")
                         ReplacedFiles += 1
                     ElseIf File.Exists(ExtractFile.SelectedPath & "\dstorage.dll") Then
                         If Not File.Exists(ExtractFile.SelectedPath & "\dstorage.bak") Then File.Move(ExtractFile.SelectedPath & "\dstorage.dll", ExtractFile.SelectedPath & "\dstorage.bak")
-                        File.Copy(Temp & "\dstorage123\dstorage.dll", ExtractFile.SelectedPath & "\dstorage.dll")
+                        File.Copy(Temp & "dstorage123\dstorage.dll", ExtractFile.SelectedPath & "\dstorage.dll")
                         ReplacedFiles += 1
                     End If
                     If File.Exists(ExtractFile.SelectedPath & "\dstoragecore.dll") Then
                         If Not File.Exists(ExtractFile.SelectedPath & "\dstoragecore.bak") Then File.Move(ExtractFile.SelectedPath & "\dstoragecore.dll", ExtractFile.SelectedPath & "\dstoragecore.bak")
-                        File.Copy(Temp & "\dstorage123\dstoragecore.dll", ExtractFile.SelectedPath & "\dstoragecore.dll")
+                        File.Copy(Temp & "dstorage123\dstoragecore.dll", ExtractFile.SelectedPath & "\dstoragecore.dll")
                         ReplacedFiles += 1
                     End If
-                    MessageBox.Show("Done!" & vbNewLine &
-                                    "Files: " & ReplacedFiles.ToString & " replaced.", "DLSS Replacer", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    If Language = "de" Then
+                        ScanButton.Text = "Laufwerk/Ordner scannen..."
+                        ReplaceButton.Text = "Ersetzen"
+                        MessageBox.Show("Abgeschlossen!" & vbNewLine &
+                                        "Datei(en): " & ReplacedFiles.ToString & " ersetzt.", "DLSS Replacer", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    Else
+                        ScanButton.Text = "Scan Drive/Folder..."
+                        ReplaceButton.Text = "Replace"
+                        MessageBox.Show("Done!" & vbNewLine &
+                                        "Files: " & ReplacedFiles.ToString & " replaced.", "DLSS Replacer", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    End If
                 Catch
-                    MessageBox.Show("Error!", "DLSS Replacer", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    If Language = "de" Then
+                        ScanButton.Text = "Laufwerk/Ordner scannen..."
+                        ReplaceButton.Text = "Ersetzen"
+                        MessageBox.Show("Fehler!", "DLSS Replacer", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Else
+                        ScanButton.Text = "Scan Drive/Folder..."
+                        ReplaceButton.Text = "Replace"
+                        MessageBox.Show("Error!", "DLSS Replacer", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    End If
                 End Try
             End If
         End Using
@@ -512,21 +601,40 @@ Public Class MainWindow
             Dim ExtractFileResult As DialogResult = ExtractFile.ShowDialog
             If ExtractFileResult = DialogResult.OK Then
                 Dim ReplacedFiles As Integer = 0
+                CurrentResource = My.Resources.dlss1
+                CurrentResourceName = "dlss1"
                 Try
                     If Not Directory.Exists(Temp & "\dlss1") Then
-                        File.WriteAllBytes(Temp & "\dlss1.zip", My.Resources.dlss1)
-                        ZipFile.ExtractToDirectory(Temp & "\dlss1.zip", Temp)
-                        File.Delete(Temp & "\dlss1.zip")
+                        File.WriteAllBytes(Temp & "dlss1.zip", CurrentResource)
+                        ZipFile.ExtractToDirectory(Temp & "dlss1.zip", Temp)
+                        File.Delete(Temp & "dlss1.zip")
                     End If
                     If File.Exists(ExtractFile.SelectedPath & "\nvngx_dlss.dll") Then
                         If Not File.Exists(ExtractFile.SelectedPath & "\nvngx_dlss.bak") Then File.Move(ExtractFile.SelectedPath & "\nvngx_dlss.dll", ExtractFile.SelectedPath & "\nvngx_dlss.bak")
-                        File.Copy(Temp & "\dlss1\nvngx_dlss.dll", ExtractFile.SelectedPath & "\nvngx_dlss.dll")
+                        File.Copy(Temp & "dlss1\nvngx_dlss.dll", ExtractFile.SelectedPath & "\nvngx_dlss.dll")
                         ReplacedFiles += 1
                     End If
-                    MessageBox.Show("Done!" & vbNewLine &
-                                    "Files: " & ReplacedFiles.ToString & " replaced.", "DLSS Replacer", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    If Language = "de" Then
+                        ScanButton.Text = "Laufwerk/Ordner scannen..."
+                        ReplaceButton.Text = "Ersetzen"
+                        MessageBox.Show("Abgeschlossen!" & vbNewLine &
+                                        "Datei(en): " & ReplacedFiles.ToString & " ersetzt.", "DLSS Replacer", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    Else
+                        ScanButton.Text = "Scan Drive/Folder..."
+                        ReplaceButton.Text = "Replace"
+                        MessageBox.Show("Done!" & vbNewLine &
+                                        "Files: " & ReplacedFiles.ToString & " replaced.", "DLSS Replacer", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    End If
                 Catch
-                    MessageBox.Show("Error!", "DLSS Replacer", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    If Language = "de" Then
+                        ScanButton.Text = "Laufwerk/Ordner scannen..."
+                        ReplaceButton.Text = "Ersetzen"
+                        MessageBox.Show("Fehler!", "DLSS Replacer", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Else
+                        ScanButton.Text = "Scan Drive/Folder..."
+                        ReplaceButton.Text = "Replace"
+                        MessageBox.Show("Error!", "DLSS Replacer", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    End If
                 End Try
             End If
         End Using
@@ -536,35 +644,61 @@ Public Class MainWindow
             Dim ExtractFileResult As DialogResult = ExtractFile.ShowDialog
             If ExtractFileResult = DialogResult.OK Then
                 Dim ReplacedFiles As Integer = 0
+                CurrentResource = My.Resources.dlss4
+                CurrentResourceName = "dlss4"
                 Try
-                    If Not Directory.Exists(Temp & "\dlss4") Then
-                        File.WriteAllBytes(Temp & "\dlss4.zip", My.Resources.dlss4)
-                        ZipFile.ExtractToDirectory(Temp & "\dlss4.zip", Temp)
-                        File.Delete(Temp & "\dlss4.zip")
+                    If Not Directory.Exists(Temp & "dlss4") Then
+                        File.WriteAllBytes(Temp & "dlss4.zip", CurrentResource)
+                        ZipFile.ExtractToDirectory(Temp & "dlss4.zip", Temp)
+                        File.Delete(Temp & "dlss4.zip")
                     End If
                     If File.Exists(ExtractFile.SelectedPath & "\nvngx_dlss.dll") Then
                         If Not File.Exists(ExtractFile.SelectedPath & "\nvngx_dlss.bak") Then File.Move(ExtractFile.SelectedPath & "\nvngx_dlss.dll", ExtractFile.SelectedPath & "\nvngx_dlss.bak")
-                        File.Copy(Temp & "\dlss4\nvngx_dlss.dll", ExtractFile.SelectedPath & "\nvngx_dlss.dll")
+                        File.Copy(Temp & "dlss4\nvngx_dlss.dll", ExtractFile.SelectedPath & "\nvngx_dlss.dll")
                         ReplacedFiles += 1
                     End If
                     If File.Exists(ExtractFile.SelectedPath & "\nvngx_dlssd.dll") Then
                         If Not File.Exists(ExtractFile.SelectedPath & "\nvngx_dlssd.bak") Then File.Move(ExtractFile.SelectedPath & "\nvngx_dlssd.dll", ExtractFile.SelectedPath & "\nvngx_dlssd.bak")
-                        File.Copy(Temp & "\dlss4\nvngx_dlssd.dll", ExtractFile.SelectedPath & "\nvngx_dlssd.dll")
+                        File.Copy(Temp & "dlss4\nvngx_dlssd.dll", ExtractFile.SelectedPath & "\nvngx_dlssd.dll")
                         ReplacedFiles += 1
                     End If
                     If File.Exists(ExtractFile.SelectedPath & "\nvngx_dlssg.dll") Then
                         If Not File.Exists(ExtractFile.SelectedPath & "\nvngx_dlssg.bak") Then File.Move(ExtractFile.SelectedPath & "\nvngx_dlssg.dll", ExtractFile.SelectedPath & "\nvngx_dlssg.bak")
-                        File.Copy(Temp & "\dlss4\nvngx_dlssg.dll", ExtractFile.SelectedPath & "\nvngx_dlssg.dll")
+                        File.Copy(Temp & "dlss4\nvngx_dlssg.dll", ExtractFile.SelectedPath & "\nvngx_dlssg.dll")
                         ReplacedFiles += 1
                     End If
-                    MessageBox.Show("Done!" & vbNewLine &
-                                    "Files: " & ReplacedFiles.ToString & " replaced.", "DLSS Replacer", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    If Language = "de" Then
+                        ScanButton.Text = "Laufwerk/Ordner scannen..."
+                        ReplaceButton.Text = "Ersetzen"
+                        MessageBox.Show("Abgeschlossen!" & vbNewLine &
+                                        "Datei(en): " & ReplacedFiles.ToString & " ersetzt.", "DLSS Replacer", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    Else
+                        ScanButton.Text = "Scan Drive/Folder..."
+                        ReplaceButton.Text = "Replace"
+                        MessageBox.Show("Done!" & vbNewLine &
+                                        "Files: " & ReplacedFiles.ToString & " replaced.", "DLSS Replacer", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    End If
                 Catch
-                    MessageBox.Show("Error!", "DLSS Replacer", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    If Language = "de" Then
+                        ScanButton.Text = "Laufwerk/Ordner scannen..."
+                        ReplaceButton.Text = "Ersetzen"
+                        MessageBox.Show("Fehler!", "DLSS Replacer", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Else
+                        ScanButton.Text = "Scan Drive/Folder..."
+                        ReplaceButton.Text = "Replace"
+                        MessageBox.Show("Error!", "DLSS Replacer", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    End If
                 End Try
             End If
         End Using
     End Sub
+    Private Function PingGitHub() As Boolean
+        If OfflineModeToolStripMenuItem.Checked Then
+            Return False
+        Else
+            Return My.Computer.Network.Ping("www.github.com")
+        End If
+    End Function
     Private Sub MainWindow_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         For Each CleanupDirectory As String In CleanupDirectories
             Try
@@ -572,5 +706,18 @@ Public Class MainWindow
             Catch
             End Try
         Next
+    End Sub
+    Private Sub MainWindow_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Text = My.Application.Info.ProductName & " " & My.Application.Info.Version.Major & "." & My.Application.Info.Version.Minor
+        If Not My.Computer.Network.Ping("www.github.com", 250) Then
+            OfflineModeToolStripMenuItem.Checked = True
+            OfflineModeToolStripMenuItem1.Checked = True
+            OfflineModeToolStripMenuItem2.Checked = True
+        End If
+    End Sub
+    Private Sub OfflineModeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OfflineModeToolStripMenuItem.Click, OfflineModeToolStripMenuItem2.Click, OfflineModeToolStripMenuItem1.Click
+        OfflineModeToolStripMenuItem.Checked = Not OfflineModeToolStripMenuItem.Checked
+        OfflineModeToolStripMenuItem1.Checked = OfflineModeToolStripMenuItem.Checked
+        OfflineModeToolStripMenuItem2.Checked = OfflineModeToolStripMenuItem.Checked
     End Sub
 End Class
