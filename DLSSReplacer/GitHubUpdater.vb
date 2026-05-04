@@ -5,7 +5,7 @@ Public Class GitHubUpdater
     Shared Property RepositoryOwnerName As String = "sYnapZiX"
     Shared Property RepositoryName As String = My.Application.Info.AssemblyName
     Shared Property AssetFile As String = "Release.zip"
-    Public Shared Function Check(Optional Silent As Boolean = False) As Boolean
+    Public Shared Function Check(Optional Silent As Boolean = False, Optional FourDigitVersionNumber As Boolean = False) As Boolean
         Try
             CleanupTemporaryFiles()
 
@@ -16,15 +16,20 @@ Public Class GitHubUpdater
                     Dim StartIndex As Integer = UpdateString.IndexOf("<title>")
                     Dim EndIndex As Integer = UpdateString.IndexOf("Â·")
                     If StartIndex <> -1 AndAlso EndIndex <> -1 Then
-                        Dim CurrentVersion As String = My.Application.Info.Version.Major & "." & My.Application.Info.Version.Minor
+                        Dim CurrentVersion As String
+                        If FourDigitVersionNumber Then
+                            CurrentVersion = My.Application.Info.Version.Major & "." & My.Application.Info.Version.Minor & "." & My.Application.Info.Version.Build & "." & My.Application.Info.Version.MinorRevision
+                        Else
+                            CurrentVersion = My.Application.Info.Version.Major & "." & My.Application.Info.Version.Minor
+                        End If
                         Dim UpdateVersion As String = UpdateString.Substring(StartIndex + 7, EndIndex - StartIndex - 8).Replace("Release ", "")
                         If UpdateVersion = "Releases" Then UpdateVersion = CurrentVersion
                         If Not Silent AndAlso CurrentVersion <> UpdateVersion Then
                             Dim Result As New DialogResult
                             If Threading.Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName = "de" Then
-                                Result = MessageBox.Show("Eine neuere Version ist verfügbar." & vbNewLine & "Möchten Sie jetzt ein Update durchführen?", "GitHubUpdater", MessageBoxButtons.YesNo, MessageBoxIcon.Information)
+                                Result = MessageBox.Show("Eine neuere Version ist verfügbar." & vbNewLine & "Möchten Sie jetzt ein Update durchführen?", "GitHub Updater", MessageBoxButtons.YesNo, MessageBoxIcon.Information)
                             Else
-                                Result = MessageBox.Show("A newer version is available." & vbNewLine & "Do you want to update now?", "GitHubUpdater", MessageBoxButtons.YesNo, MessageBoxIcon.Information)
+                                Result = MessageBox.Show("A newer version is available." & vbNewLine & "Do you want to update now?", "GitHub Updater", MessageBoxButtons.YesNo, MessageBoxIcon.Information)
                             End If
                             If Result = DialogResult.Yes Then Return True
                         Else
@@ -36,9 +41,9 @@ Public Class GitHubUpdater
         Catch
             If Not Silent Then
                 If Threading.Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName = "de" Then
-                    MessageBox.Show("Beim suchen nach Updates ist ein Fehler aufgetreten.", "GitHubUpdater", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    MessageBox.Show("Beim suchen nach Updates ist ein Fehler aufgetreten.", "GitHub Updater", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Else
-                    MessageBox.Show("An error occured while searching for updates.", "GitHubUpdater", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    MessageBox.Show("An error occured while searching for updates.", "GitHub Updater", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 End If
             End If
         End Try
@@ -58,7 +63,7 @@ Public Class GitHubUpdater
                     If AssetFile.EndsWith(".zip") Then
                         ZipFile.ExtractToDirectory(Path.GetTempPath & "GitHubUpdater\" & AssetFile, Path.GetTempPath & "GitHubUpdater\" & AssetFile.Replace(".zip", ""))
                         File.Delete(Path.GetTempPath & "GitHubUpdater\" & AssetFile)
-                        Using UpdateScript As New StreamWriter("UpdateScript.cmd", False)
+                        Using UpdateScript As New StreamWriter(Path.GetTempPath & "GitHubUpdater\UpdateScript.cmd", False)
                             UpdateScript.WriteLine("@echo off")
                             If Threading.Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName = "de" Then
                                 UpdateScript.WriteLine("echo " & My.Application.Info.ProductName & " Aktualisierungsprogramm")
@@ -75,7 +80,7 @@ Public Class GitHubUpdater
                             UpdateScript.WriteLine("start " & My.Application.Info.DirectoryPath & "\" & My.Application.Info.AssemblyName & ".exe")
                             UpdateScript.WriteLine("exit")
                         End Using
-                        Process.Start("cmd", "/c " & """" & My.Application.Info.DirectoryPath & "\UpdateScript.cmd" & """")
+                        Process.Start("cmd", "/c " & """" & Path.GetTempPath & "GitHubUpdater\UpdateScript.cmd" & """")
                         End
                     End If
                 End Using
@@ -87,12 +92,6 @@ Public Class GitHubUpdater
         Try
             If Directory.Exists(Path.GetTempPath & "GitHubUpdater") Then
                 Directory.Delete(Path.GetTempPath & "GitHubUpdater", True)
-            End If
-        Catch
-        End Try
-        Try
-            If File.Exists(My.Application.Info.DirectoryPath & "\UpdateScript.cmd") Then
-                File.Delete(My.Application.Info.DirectoryPath & "\UpdateScript.cmd")
             End If
         Catch
         End Try
