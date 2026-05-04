@@ -75,9 +75,9 @@ Public Class GitHubUpdater
                             UpdateScript.WriteLine("echo.")
                             UpdateScript.WriteLine("timeout 5 /NOBREAK")
                             UpdateScript.WriteLine("cls")
-                            UpdateScript.WriteLine("robocopy " & Path.GetTempPath & "GitHubUpdater\" & AssetFile.Replace(".zip", "") & " " & My.Application.Info.DirectoryPath & " /E /MOVE")
+                            UpdateScript.WriteLine("robocopy " & """" & Path.GetTempPath & "GitHubUpdater\" & AssetFile.Replace(".zip", "") & """ """ & My.Application.Info.DirectoryPath & """ /E /MOVE")
                             UpdateScript.WriteLine("cls")
-                            UpdateScript.WriteLine("start " & My.Application.Info.DirectoryPath & "\" & My.Application.Info.AssemblyName & ".exe")
+                            UpdateScript.WriteLine("start " & """" & My.Application.Info.DirectoryPath & "\" & My.Application.Info.AssemblyName & ".exe" & """")
                             UpdateScript.WriteLine("exit")
                         End Using
                         Process.Start("cmd", "/c " & """" & Path.GetTempPath & "GitHubUpdater\UpdateScript.cmd" & """")
