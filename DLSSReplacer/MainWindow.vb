@@ -1,10 +1,9 @@
 ﻿Imports System.IO
 Imports System.IO.Compression
-Imports System.Net
 Imports DLSSReplacer.My
 
 Public Class MainWindow
-    Private ReadOnly Language As String = Threading.Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName
+    Public Shared ReadOnly Language As String = Threading.Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName
     Private ReadOnly Temp As String = Path.GetTempPath
 
     Private ReadOnly IncludedVersionDLSS4 As String = "310.6.0.0"
@@ -320,11 +319,7 @@ Public Class MainWindow
     ' #######################################################################################################################################################################################################################################################################################################################################
     Private Sub MainWindow_Shown(sender As Object, e As EventArgs) Handles MyBase.Shown
         ConsoleBox.AppendText("Ready for work! - " & Text & " - by sYnapZiX" & vbNewLine & vbNewLine)
-        Enabled = False
-        If GitHubUpdater.Check() Then
-            GitHubUpdater.Download()
-        End If
-        Enabled = True
+        If GitHubUpdater.Check() Then GitHubUpdater.Download()
     End Sub
     Private Sub CleanUp()
         For Each CleanupDirectory As String In CleanupDirectories
