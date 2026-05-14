@@ -409,12 +409,31 @@
         End Sub
     End Structure
     Public Shared Sub CleanupTemporaryFiles()
+        If IO.Directory.Exists(Properties.TemporaryFolder) Then
+            For Each TemporaryFile As String In IO.Directory.GetFiles(Properties.TemporaryFolder, "*.*", IO.SearchOption.AllDirectories)
+                Try
+                    IO.File.Delete(TemporaryFile)
+                Catch
+                End Try
+            Next
+            For Each TemporaryFolder As String In IO.Directory.GetDirectories(Properties.TemporaryFolder, "*.*", IO.SearchOption.AllDirectories)
+                Try
+                    IO.Directory.Delete(TemporaryFolder, True)
+                Catch
+                End Try
+            Next
+        End If
+    End Sub
+    Public Shared Sub RemoveTemporaryFile(Filename As String)
+        If IO.File.Exists(Properties.TemporaryFolder & Filename) Then IO.File.Delete(Properties.TemporaryFolder & Filename)
+    End Sub
+    Public Shared Sub RemoveTemporaryFolder()
         If IO.Directory.Exists(Properties.TemporaryFolder) Then IO.Directory.Delete(Properties.TemporaryFolder, True)
     End Sub
     Public Shared Function Check() As Boolean
         If Properties.Enabled Then
             Try
-                CleanupTemporaryFiles()
+                RemoveTemporaryFolder()
                 If My.Computer.Network.IsAvailable Then
                     If My.Computer.Network.Ping("www.github.com", Properties.Timeout) Then
                         Using UpdateClient As New Net.WebClient
@@ -508,7 +527,7 @@
             End Try
         Else
             Try
-                CleanupTemporaryFiles()
+                RemoveTemporaryFolder()
             Catch
             End Try
         End If
@@ -621,8 +640,9 @@
                                 Next
                                 Try
                                     For i = 1 To Properties.AssetParts
-                                        If IO.File.Exists(Properties.TemporaryFolder & "\" & Properties.AssetFile & ".s" & i.ToString("000")) Then
-                                            Dim FileLength As Long = New IO.FileInfo(Properties.TemporaryFolder & "\" & Properties.AssetFile & ".s" & i.ToString("000")).Length
+                                        TemporaryBuffer.DownloadTarget = Properties.TemporaryFolder & "\" & Properties.AssetFile & ".s" & i.ToString("000")
+                                        If IO.File.Exists(TemporaryBuffer.DownloadTarget) Then
+                                            Dim FileLength As Long = New IO.FileInfo(TemporaryBuffer.DownloadTarget).Length
                                             Dim Append As Boolean = False
                                             If i = 1 Then
                                                 Append = False
@@ -630,11 +650,11 @@
                                                 Append = True
                                             End If
                                             Using FileWriter As New IO.StreamWriter(Properties.TemporaryFolder & "\" & Properties.AssetFile, Append, Text.Encoding.Default)
-                                                FileWriter.Write(IO.File.ReadAllText(Properties.TemporaryFolder & "\" & Properties.AssetFile & ".s" & i.ToString("000"), Text.Encoding.Default))
+                                                FileWriter.Write(IO.File.ReadAllText(TemporaryBuffer.DownloadTarget, Text.Encoding.Default))
                                                 FileWriter.Flush()
                                                 FileWriter.Close()
                                             End Using
-                                            IO.File.Delete(Properties.TemporaryFolder & "\" & Properties.AssetFile & ".s" & i.ToString("000"))
+                                            IO.File.Delete(TemporaryBuffer.DownloadTarget)
                                         Else
                                             Exit For
                                         End If
@@ -681,7 +701,14 @@
                     End If
                 Else
                     If Strings.ServerUnreachable = DialogResult.Retry Then
-                        Download(ExecutableToMove, UpdateURLOverride, DownloadTargetOverride)
+                        Try
+                            If IO.File.Exists(TemporaryBuffer.DownloadTarget) Then IO.File.Delete(TemporaryBuffer.DownloadTarget)
+                            Download(ExecutableToMove, UpdateURLOverride, DownloadTargetOverride)
+                        Catch
+                            Application.DoEvents()
+                            UserInterface.DownloadFailed()
+                            Application.DoEvents()
+                        End Try
                     Else
                         Application.DoEvents()
                         UserInterface.DownloadFailed()
@@ -690,6 +717,7 @@
                 End If
             Else
                 If Strings.NoInternetConnection = DialogResult.Retry Then
+                    If IO.File.Exists(TemporaryBuffer.DownloadTarget) Then IO.File.Delete(TemporaryBuffer.DownloadTarget)
                     Download(ExecutableToMove, UpdateURLOverride, DownloadTargetOverride)
                 Else
                     Application.DoEvents()
