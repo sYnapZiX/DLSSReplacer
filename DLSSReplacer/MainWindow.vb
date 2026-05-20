@@ -10,13 +10,11 @@ Public Class MainWindow
     Private ReadOnly IncludedVersionDLSS4FG As String = "310.6.0.0"
     Private ReadOnly IncludedVersionDLSS4RR As String = "310.6.0.0"
     Private ReadOnly IncludedVersionDLSS1 As String = "1.2.14.0"
-    Private ReadOnly IncludedVersionDirectStorage As String = "1.3.2506.2501"
 
     Private ReadOnly BackupExtension As String = ".PRE-DLSS-REPLACER"
 
     Private ReadOnly CleanupDirectories As String() = {Temp & "dlss1",
-                                                       Temp & "dlss4",
-                                                       Temp & "dstorage123"}
+                                                       Temp & "dlss4"}
     Private CurrentResource As Byte()
     Private CurrentResourceName As String = String.Empty
 
@@ -127,48 +125,6 @@ Public Class MainWindow
                                         AddListItem(DLLFile, DLLVersionInfoString, IncludedVersionDLSS4FG, "DLSS 3 Frame-Generation Library")
                                     End If
                                     FoundEntries += 1
-                                ElseIf DLLFile.EndsWith("dstorage.dll") Then
-                                    ConsoleBox.AppendText("Found direct-storage library in: " & Path.GetDirectoryName(DLLFile) & vbNewLine)
-                                    Dim DLLVersionInfo As FileVersionInfo = FileVersionInfo.GetVersionInfo(DLLFile)
-                                    Dim DLLVersionInfoString As String = String.Empty
-                                    If DLLVersionInfo.FileVersion IsNot Nothing Then
-                                        DLLVersionInfoString = DLLVersionInfo.FileVersion.Replace(",", ".")
-                                    End If
-                                    If DLLVersionInfoString.StartsWith("1") Then ' ############################################################################################################################################################################################### Direct-Storage
-                                        AddListItem(DLLFile, DLLVersionInfoString, IncludedVersionDirectStorage, "Direct-Storage Library")
-                                    End If
-                                    FoundEntries += 1
-                                ElseIf DLLFile.EndsWith("dstoragecore.dll") Then
-                                    ConsoleBox.AppendText("Found direct-storage core library in: " & Path.GetDirectoryName(DLLFile) & vbNewLine)
-                                    Dim DLLVersionInfo As FileVersionInfo = FileVersionInfo.GetVersionInfo(DLLFile)
-                                    Dim DLLVersionInfoString As String = String.Empty
-                                    If DLLVersionInfo.FileVersion IsNot Nothing Then
-                                        DLLVersionInfoString = DLLVersionInfo.FileVersion.Replace(",", ".")
-                                    End If
-                                    If DLLVersionInfoString.StartsWith("1") Then ' ############################################################################################################################################################################################### Direct-Storage Core
-                                        AddListItem(DLLFile, DLLVersionInfoString, IncludedVersionDirectStorage, "Direct-Storage Core Library")
-                                    End If
-                                    FoundEntries += 1
-                                End If
-                                Application.DoEvents()
-                            End If
-                        Next
-                        For Each V38File As String In Directory.EnumerateFiles(FilteredDLLPath, "*.v38", SearchOption.AllDirectories)
-                            If ValidDirectory(V38File) AndAlso FilePathList.FindItemWithText(V38File) Is Nothing Then
-                                Application.DoEvents()
-                                If V38File.EndsWith("dstorage.v38") Then
-                                    ConsoleBox.AppendText("Found direct-storage library in: " & Path.GetDirectoryName(V38File) & vbNewLine)
-                                    File.Copy(V38File, V38File & ".dll")
-                                    Dim DLLVersionInfo As FileVersionInfo = FileVersionInfo.GetVersionInfo(V38File & ".dll")
-                                    Dim DLLVersionInfoString As String = String.Empty
-                                    If DLLVersionInfo.FileVersion IsNot Nothing Then
-                                        DLLVersionInfoString = DLLVersionInfo.FileVersion.Replace(",", ".")
-                                    End If
-                                    File.Delete(V38File & ".dll")
-                                    If DLLVersionInfoString.StartsWith("1") Then ' ############################################################################################################################################################################################### Direct-Storage
-                                        AddListItem(V38File, DLLVersionInfoString, IncludedVersionDirectStorage, "Direct-Storage Library")
-                                    End If
-                                    FoundEntries += 1
                                 End If
                                 Application.DoEvents()
                             End If
@@ -248,21 +204,6 @@ Public Class MainWindow
                         ElseIf CurrentVersion.StartsWith("3") Then ' ############################################################################################################################################################################################################# DLSS 3 Frame-Generation
                             ReplaceDLL(My.Resources.dlss4, "dlss4", "nvngx_dlssg.dll", DLLFile, FilePathList.Items.Item(i).SubItems(1), FilePathList.Items.Item(i).SubItems(2), FilePathList.Items.Item(i).SubItems(3))
                             ReplacedDLLsDLSS3 += 1
-                        End If
-                    ElseIf DLLFile.EndsWith("dstorage.dll") Then
-                        If CurrentVersion.StartsWith("1") Then ' ################################################################################################################################################################################################################# Direct-Storage
-                            ReplaceDLL(My.Resources.dstorage123, "dstorage123", "dstorage.dll", DLLFile, FilePathList.Items.Item(i).SubItems(1), FilePathList.Items.Item(i).SubItems(2), FilePathList.Items.Item(i).SubItems(3))
-                            ReplacedDLLsDirectStorage += 1
-                        End If
-                    ElseIf DLLFile.EndsWith("dstorage.v38") Then
-                        If CurrentVersion.StartsWith("1") Then ' ################################################################################################################################################################################################################# Direct-Storage
-                            ReplaceDLL(My.Resources.dstorage123, "dstorage123", "dstorage.dll", DLLFile, FilePathList.Items.Item(i).SubItems(1), FilePathList.Items.Item(i).SubItems(2), FilePathList.Items.Item(i).SubItems(3))
-                            ReplacedDLLsDirectStorage += 1
-                        End If
-                    ElseIf DLLFile.EndsWith("dstoragecore.dll") Then
-                        If CurrentVersion.StartsWith("1") Then ' ################################################################################################################################################################################################################# Direct-Storage Core
-                            ReplaceDLL(My.Resources.dstorage123, "dstorage123", "dstoragecore.dll", DLLFile, FilePathList.Items.Item(i).SubItems(1), FilePathList.Items.Item(i).SubItems(2), FilePathList.Items.Item(i).SubItems(3))
-                            ReplacedDLLsDirectStorage += 1
                         End If
                     End If
                 Else
@@ -379,7 +320,7 @@ Public Class MainWindow
         Catch
         End Try
     End Sub
-    Private Async Sub ReplaceDLL(Resource As Byte(), ResourceName As String, ResourceDLL As String, DLLName As String, CurrentColumn As ListViewItem.ListViewSubItem, IncludedColumn As ListViewItem.ListViewSubItem, BackupColumn As ListViewItem.ListViewSubItem)
+    Private Sub ReplaceDLL(Resource As Byte(), ResourceName As String, ResourceDLL As String, DLLName As String, CurrentColumn As ListViewItem.ListViewSubItem, IncludedColumn As ListViewItem.ListViewSubItem, BackupColumn As ListViewItem.ListViewSubItem)
         If IncludedColumn.Text = "Geschützt" OrElse
            IncludedColumn.Text = "Protected" Then Exit Sub
         CurrentResource = Resource
@@ -538,58 +479,6 @@ Public Class MainWindow
             ForceReplaceToolStripMenuItem.Checked = True
         End If
         ForceReplaceToolStripMenuItem1.Checked = ForceReplaceToolStripMenuItem.Checked
-    End Sub
-    Private Sub DirectStorageToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DirectStorageToolStripMenuItem.Click, DirectStorageToolStripMenuItem1.Click, DirectStorageToolStripMenuItem2.Click
-        Using ExtractFile As New FolderBrowserDialog
-            Dim ExtractFileResult As DialogResult = ExtractFile.ShowDialog
-            If ExtractFileResult = DialogResult.OK Then
-                Dim ReplacedFiles As Integer = 0
-                CurrentResource = My.Resources.dstorage123
-                CurrentResourceName = "dstorage123"
-                Try
-                    If Not Directory.Exists(Temp & "\dstorage123") Then
-                        File.WriteAllBytes(Temp & "dstorage123.zip", CurrentResource)
-                        ZipFile.ExtractToDirectory(Temp & "dstorage123.zip", Temp)
-                        File.Delete(Temp & "dstorage123.zip")
-                    End If
-                    If File.Exists(ExtractFile.SelectedPath & "\dstorage.v38") Then
-                        If Not File.Exists(ExtractFile.SelectedPath & "\dstorage.bak") Then File.Move(ExtractFile.SelectedPath & "\dstorage.v38", ExtractFile.SelectedPath & "\dstorage.bak")
-                        File.Copy(Temp & "dstorage123\dstorage.dll", ExtractFile.SelectedPath & "\dstorage.v38")
-                        ReplacedFiles += 1
-                    ElseIf File.Exists(ExtractFile.SelectedPath & "\dstorage.dll") Then
-                        If Not File.Exists(ExtractFile.SelectedPath & "\dstorage.bak") Then File.Move(ExtractFile.SelectedPath & "\dstorage.dll", ExtractFile.SelectedPath & "\dstorage.bak")
-                        File.Copy(Temp & "dstorage123\dstorage.dll", ExtractFile.SelectedPath & "\dstorage.dll")
-                        ReplacedFiles += 1
-                    End If
-                    If File.Exists(ExtractFile.SelectedPath & "\dstoragecore.dll") Then
-                        If Not File.Exists(ExtractFile.SelectedPath & "\dstoragecore.bak") Then File.Move(ExtractFile.SelectedPath & "\dstoragecore.dll", ExtractFile.SelectedPath & "\dstoragecore.bak")
-                        File.Copy(Temp & "dstorage123\dstoragecore.dll", ExtractFile.SelectedPath & "\dstoragecore.dll")
-                        ReplacedFiles += 1
-                    End If
-                    If Language = "de" Then
-                        ScanButton.Text = "Laufwerk/Ordner scannen..."
-                        ReplaceButton.Text = "Ersetzen"
-                        MessageBox.Show("Abgeschlossen!" & vbNewLine &
-                                        "Datei(en): " & ReplacedFiles.ToString & " ersetzt.", "DLSS Replacer", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                    Else
-                        ScanButton.Text = "Scan Drive/Folder..."
-                        ReplaceButton.Text = "Replace"
-                        MessageBox.Show("Done!" & vbNewLine &
-                                        "Files: " & ReplacedFiles.ToString & " replaced.", "DLSS Replacer", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                    End If
-                Catch
-                    If Language = "de" Then
-                        ScanButton.Text = "Laufwerk/Ordner scannen..."
-                        ReplaceButton.Text = "Ersetzen"
-                        MessageBox.Show("Fehler!", "DLSS Replacer", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                    Else
-                        ScanButton.Text = "Scan Drive/Folder..."
-                        ReplaceButton.Text = "Replace"
-                        MessageBox.Show("Error!", "DLSS Replacer", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                    End If
-                End Try
-            End If
-        End Using
     End Sub
     Private Sub NVIDIADLSS1ToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NVIDIADLSS1ToolStripMenuItem.Click, DLSS1ToolStripMenuItem.Click, DLSS1ToolStripMenuItem1.Click
         Using ExtractFile As New FolderBrowserDialog

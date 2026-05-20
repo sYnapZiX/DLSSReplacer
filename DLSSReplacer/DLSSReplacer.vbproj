@@ -135,7 +135,6 @@
     <None Include="App.config" />
     <None Include="Resources\dlss1.zip" />
     <None Include="Resources\dlss4.zip" />
-    <None Include="Resources\dstorage123.zip" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="nvidia.ico" />

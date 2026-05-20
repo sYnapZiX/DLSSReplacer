@@ -79,15 +79,5 @@ Namespace My.Resources
                 Return CType(obj,Byte())
             End Get
         End Property
-        
-        '''<summary>
-        '''  Sucht eine lokalisierte Ressource vom Typ System.Byte[].
-        '''</summary>
-        Friend ReadOnly Property dstorage123() As Byte()
-            Get
-                Dim obj As Object = ResourceManager.GetObject("dstorage123", resourceCulture)
-                Return CType(obj,Byte())
-            End Get
-        End Property
     End Module
 End Namespace

@@ -117,67 +117,260 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="ScanButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>784, 561</value>
+  <data name="ScanButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 10</value>
   </data>
-  <data name="ExtractResourceToolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
-  </data>
-  <data name="ExtractResourceToolStripMenuItem.Text" xml:space="preserve">
-    <value>Extract Resource</value>
-  </data>
-  <data name="&gt;&gt;DLSS1ToolStripMenuItem1.Name" xml:space="preserve">
-    <value>DLSS1ToolStripMenuItem1</value>
-  </data>
-  <data name="&gt;&gt;PathHeader.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="ScanButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>764, 23</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="TypeHeader.Width" type="System.Int32, mscorlib">
-    <value>175</value>
+  <data name="ScanButton.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="ScanButton.Text" xml:space="preserve">
+    <value>Scan Drive/Folder...</value>
+  </data>
+  <data name="&gt;&gt;ScanButton.Name" xml:space="preserve">
+    <value>ScanButton</value>
+  </data>
+  <data name="&gt;&gt;ScanButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ScanButton.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;ScanButton.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="ReplaceButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left, Right</value>
+  </data>
+  <data name="ReplaceButton.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="ReplaceButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 528</value>
+  </data>
+  <data name="ReplaceButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>764, 23</value>
+  </data>
+  <data name="ReplaceButton.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="ReplaceButton.Text" xml:space="preserve">
+    <value>Replace</value>
+  </data>
+  <data name="&gt;&gt;ReplaceButton.Name" xml:space="preserve">
+    <value>ReplaceButton</value>
+  </data>
+  <data name="&gt;&gt;ReplaceButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;ReplaceButton.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;NVIDIADLSS4ToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;ReplaceButton.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
-  <data name="&gt;&gt;BackupVersionHeader.Name" xml:space="preserve">
-    <value>BackupVersionHeader</value>
+  <data name="FilePathList.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
   </data>
-  <data name="&gt;&gt;ToolStripSeparator10.Name" xml:space="preserve">
-    <value>ToolStripSeparator10</value>
+  <data name="PathHeader.Text" xml:space="preserve">
+    <value>Path</value>
   </data>
-  <data name="NVIDIADLSS4ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 22</value>
+  <data name="PathHeader.Width" type="System.Int32, mscorlib">
+    <value>501</value>
   </data>
-  <data name="ShowConsoleToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="CurrentVersionHeader.Text" xml:space="preserve">
+    <value>Current</value>
+  </data>
+  <data name="CurrentVersionHeader.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="CurrentVersionHeader.Width" type="System.Int32, mscorlib">
+    <value>85</value>
+  </data>
+  <data name="NewVersionHeader.Text" xml:space="preserve">
+    <value>Replacer</value>
+  </data>
+  <data name="NewVersionHeader.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="NewVersionHeader.Width" type="System.Int32, mscorlib">
+    <value>85</value>
+  </data>
+  <data name="BackupVersionHeader.Text" xml:space="preserve">
+    <value>Backup</value>
+  </data>
+  <data name="BackupVersionHeader.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="BackupVersionHeader.Width" type="System.Int32, mscorlib">
+    <value>85</value>
+  </data>
+  <data name="TypeHeader.Text" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="TypeHeader.Width" type="System.Int32, mscorlib">
+    <value>175</value>
+  </data>
+  <metadata name="FileListMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>11, 16</value>
+  </metadata>
+  <data name="OfflineModeToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="OfflineModeToolStripMenuItem1.Text" xml:space="preserve">
+    <value>Offline Mode</value>
+  </data>
+  <data name="ToolStripSeparator10.Size" type="System.Drawing.Size, System.Drawing">
+    <value>177, 6</value>
+  </data>
+  <data name="AutoBackupToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="AutoBackupToolStripMenuItem1.Text" xml:space="preserve">
+    <value>Auto Backup</value>
+  </data>
+  <data name="ForceReplaceToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="ForceReplaceToolStripMenuItem1.Text" xml:space="preserve">
+    <value>Force Replace</value>
+  </data>
+  <data name="ToolStripSeparator5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>177, 6</value>
+  </data>
+  <data name="RemoveToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="RemoveToolStripMenuItem.Text" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="RemoveAllToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="RemoveAllToolStripMenuItem.Text" xml:space="preserve">
+    <value>Remove All</value>
+  </data>
+  <data name="ToolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>177, 6</value>
+  </data>
+  <data name="RestoreBackupToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="RestoreBackupToolStripMenuItem.Text" xml:space="preserve">
+    <value>Restore Backup</value>
+  </data>
+  <data name="CreateBackupToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="CreateBackupToolStripMenuItem.Text" xml:space="preserve">
+    <value>Create Backup</value>
+  </data>
+  <data name="DeleteBackupToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="DeleteBackupToolStripMenuItem.Text" xml:space="preserve">
+    <value>Delete Backup</value>
+  </data>
+  <data name="ToolStripSeparator7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>177, 6</value>
+  </data>
+  <data name="DLSS1ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="DLSS1ToolStripMenuItem.Text" xml:space="preserve">
+    <value>DLSS 1</value>
+  </data>
+  <data name="DLSS4ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="DLSS4ToolStripMenuItem.Text" xml:space="preserve">
+    <value>DLSS 4</value>
+  </data>
+  <data name="ExtractResourceToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="ExtractResourceToolStripMenuItem1.Text" xml:space="preserve">
+    <value>Extract Resource</value>
+  </data>
+  <data name="ToolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>177, 6</value>
+  </data>
+  <data name="ShowConsoleToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="ShowConsoleToolStripMenuItem.Text" xml:space="preserve">
+    <value>Show Console</value>
+  </data>
+  <data name="FileListMenu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>181, 276</value>
+  </data>
+  <data name="&gt;&gt;FileListMenu.Name" xml:space="preserve">
+    <value>FileListMenu</value>
+  </data>
+  <data name="&gt;&gt;FileListMenu.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="FilePathList.LabelWrap" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="FilePathList.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 41</value>
+  </data>
+  <data name="FilePathList.Size" type="System.Drawing.Size, System.Drawing">
+    <value>760, 479</value>
+  </data>
+  <data name="FilePathList.TabIndex" type="System.Int32, mscorlib">
+    <value>101</value>
+  </data>
+  <data name="&gt;&gt;FilePathList.Name" xml:space="preserve">
+    <value>FilePathList</value>
+  </data>
+  <data name="&gt;&gt;FilePathList.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;FilePathList.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;FilePathList.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="ConsoleBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="ConsoleBox.BulletIndent" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <metadata name="ConsoleMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>329, 17</value>
+  </metadata>
+  <data name="ShowConsoleToolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
     <value>160, 22</value>
-  </data>
-  <data name="&gt;&gt;ToolStripSeparator5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;CreateBackupToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;OfflineModeToolStripMenuItem1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ForceReplaceToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="ShowConsoleToolStripMenuItem2.Text" xml:space="preserve">
     <value>Show Console</value>
   </data>
-  <data name="&gt;&gt;ConsoleMenu.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="ToolStripSeparator10.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="ToolStripSeparator3.Size" type="System.Drawing.Size, System.Drawing">
     <value>157, 6</value>
   </data>
-  <data name="&gt;&gt;ShowConsoleToolStripMenuItem2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="SaveLogFileToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 22</value>
+  </data>
+  <data name="SaveLogFileToolStripMenuItem.Text" xml:space="preserve">
+    <value>Save Log File...</value>
+  </data>
+  <data name="ClearConsoleToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 22</value>
+  </data>
+  <data name="ClearConsoleToolStripMenuItem.Text" xml:space="preserve">
+    <value>Clear Console</value>
   </data>
   <data name="ToolStripSeparator8.Size" type="System.Drawing.Size, System.Drawing">
     <value>157, 6</value>
@@ -185,387 +378,122 @@
   <data name="OfflineModeToolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
     <value>160, 22</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="ReplaceButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left, Right</value>
+  <data name="OfflineModeToolStripMenuItem2.Text" xml:space="preserve">
+    <value>Offline Mode</value>
   </data>
-  <data name="&gt;&gt;ToolStripSeparator8.Name" xml:space="preserve">
-    <value>ToolStripSeparator8</value>
-  </data>
-  <data name="TypeHeader.Text" xml:space="preserve">
-    <value>Type</value>
-  </data>
-  <data name="&gt;&gt;ReplaceButton.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;ExtractResourceToolStripMenuItem2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;FilePathList.Name" xml:space="preserve">
-    <value>FilePathList</value>
-  </data>
-  <data name="OfflineModeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
-  </data>
-  <data name="&gt;&gt;AutoBackupToolStripMenuItem.Name" xml:space="preserve">
-    <value>AutoBackupToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;ToolStripSeparator8.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TypeHeader.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="AutoBackupToolStripMenuItem1.Text" xml:space="preserve">
-    <value>Auto Backup</value>
-  </data>
-  <data name="SaveLogFileToolStripMenuItem.Text" xml:space="preserve">
-    <value>Save Log File...</value>
-  </data>
-  <data name="ReplaceButton.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;NewVersionHeader.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;DirectStorageToolStripMenuItem1.Name" xml:space="preserve">
-    <value>DirectStorageToolStripMenuItem1</value>
-  </data>
-  <data name="DLSS1ToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 22</value>
-  </data>
-  <data name="&gt;&gt;ReplaceButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="CreateBackupToolStripMenuItem.Text" xml:space="preserve">
-    <value>Create Backup</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;RemoveAllToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ScanButton.Name" xml:space="preserve">
-    <value>ScanButton</value>
-  </data>
-  <data name="CurrentVersionHeader.Width" type="System.Int32, mscorlib">
-    <value>85</value>
-  </data>
-  <data name="DeleteBackupToolStripMenuItem.Text" xml:space="preserve">
-    <value>Delete Backup</value>
-  </data>
-  <data name="&gt;&gt;AutoBackupToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ToolStripSeparator2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ShowConsoleToolStripMenuItem2.Name" xml:space="preserve">
-    <value>ShowConsoleToolStripMenuItem2</value>
-  </data>
-  <data name="&gt;&gt;ToolStripSeparator7.Name" xml:space="preserve">
-    <value>ToolStripSeparator7</value>
-  </data>
-  <data name="DirectStorageToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 22</value>
-  </data>
-  <data name="&gt;&gt;RestoreBackupToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;OfflineModeToolStripMenuItem1.Name" xml:space="preserve">
-    <value>OfflineModeToolStripMenuItem1</value>
-  </data>
-  <data name="ExtractResourceToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
-  </data>
-  <data name="&gt;&gt;DLSS4ToolStripMenuItem.Name" xml:space="preserve">
-    <value>DLSS4ToolStripMenuItem</value>
-  </data>
-  <data name="RestoreBackupToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
-  </data>
-  <data name="&gt;&gt;ExtractResourceToolStripMenuItem2.Name" xml:space="preserve">
-    <value>ExtractResourceToolStripMenuItem2</value>
-  </data>
-  <data name="CreateBackupToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
-  </data>
-  <data name="&gt;&gt;CreateBackupToolStripMenuItem.Name" xml:space="preserve">
-    <value>CreateBackupToolStripMenuItem</value>
-  </data>
-  <data name="ConsoleBox.BulletIndent" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="&gt;&gt;SaveLogFileToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ShowConsoleToolStripMenuItem.Name" xml:space="preserve">
-    <value>ShowConsoleToolStripMenuItem</value>
-  </data>
-  <data name="ExtractResourceToolStripMenuItem1.Text" xml:space="preserve">
-    <value>Extract Resource</value>
-  </data>
-  <data name="FilePathList.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 41</value>
-  </data>
-  <data name="&gt;&gt;FilePathList.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="ConsoleBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
-  </data>
-  <data name="ConsoleBox.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;TypeHeader.Name" xml:space="preserve">
-    <value>TypeHeader</value>
-  </data>
-  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
-    <value>CenterScreen</value>
-  </data>
-  <data name="NewVersionHeader.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
-    <value>Right</value>
-  </data>
-  <data name="&gt;&gt;ToolStripSeparator7.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;OfflineModeToolStripMenuItem2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ForceReplaceToolStripMenuItem.Name" xml:space="preserve">
-    <value>ForceReplaceToolStripMenuItem</value>
-  </data>
-  <data name="DLSS1ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 22</value>
-  </data>
-  <data name="ForceReplaceToolStripMenuItem.Text" xml:space="preserve">
-    <value>Force Replace</value>
-  </data>
-  <data name="&gt;&gt;ConsoleBox.Name" xml:space="preserve">
-    <value>ConsoleBox</value>
-  </data>
-  <data name="DirectStorageToolStripMenuItem2.Text" xml:space="preserve">
-    <value>DirectStorage</value>
-  </data>
-  <data name="&gt;&gt;DirectStorageToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>MainWindow</value>
-  </data>
-  <data name="&gt;&gt;ForceReplaceToolStripMenuItem1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="ReplaceButton.Text" xml:space="preserve">
-    <value>Replace</value>
-  </data>
-  <data name="DLSS4ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 22</value>
-  </data>
-  <data name="&gt;&gt;NewVersionHeader.Name" xml:space="preserve">
-    <value>NewVersionHeader</value>
-  </data>
-  <data name="ToolStripSeparator4.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="ToolStripSeparator11.Size" type="System.Drawing.Size, System.Drawing">
     <value>157, 6</value>
   </data>
-  <data name="&gt;&gt;ForceReplaceToolStripMenuItem1.Name" xml:space="preserve">
-    <value>ForceReplaceToolStripMenuItem1</value>
+  <data name="DLSS1ToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
   </data>
-  <data name="&gt;&gt;ToolStripSeparator1.Name" xml:space="preserve">
-    <value>ToolStripSeparator1</value>
+  <data name="DLSS1ToolStripMenuItem1.Text" xml:space="preserve">
+    <value>DLSS 1</value>
   </data>
-  <data name="ExtractResourceToolStripMenuItem2.Text" xml:space="preserve">
-    <value>Extract Resource</value>
-  </data>
-  <data name="PathHeader.Width" type="System.Int32, mscorlib">
-    <value>501</value>
-  </data>
-  <data name="&gt;&gt;ToolStripSeparator10.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>DLSS Replacer</value>
-  </data>
-  <data name="&gt;&gt;BackupVersionHeader.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="RemoveAllToolStripMenuItem.Text" xml:space="preserve">
-    <value>Remove All</value>
-  </data>
-  <data name="&gt;&gt;NVIDIADLSS4ToolStripMenuItem.Name" xml:space="preserve">
-    <value>NVIDIADLSS4ToolStripMenuItem</value>
-  </data>
-  <data name="NVIDIADLSS4ToolStripMenuItem.Text" xml:space="preserve">
-    <value>DLSS 4</value>
-  </data>
-  <data name="ClearConsoleToolStripMenuItem.Text" xml:space="preserve">
-    <value>Clear Console</value>
-  </data>
-  <data name="&gt;&gt;ToolStripSeparator4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;RemoveToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="ForceReplaceToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
-  </data>
-  <data name="&gt;&gt;DLSS1ToolStripMenuItem1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ToolStripSeparator4.Name" xml:space="preserve">
-    <value>ToolStripSeparator4</value>
-  </data>
-  <data name="BackupVersionHeader.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
-    <value>Right</value>
-  </data>
-  <data name="&gt;&gt;ToolStripSeparator5.Name" xml:space="preserve">
-    <value>ToolStripSeparator5</value>
-  </data>
-  <data name="RemoveToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
-  </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
-  </data>
-  <data name="ConsoleBox.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Cascadia Mono, 10pt</value>
-  </data>
-  <data name="&gt;&gt;FilePathList.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>640, 480</value>
+  <data name="DLSS4ToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
   </data>
   <data name="DLSS4ToolStripMenuItem1.Text" xml:space="preserve">
     <value>DLSS 4</value>
   </data>
-  <data name="CurrentVersionHeader.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
-    <value>Right</value>
-  </data>
-  <data name="&gt;&gt;ToolStripSeparator2.Name" xml:space="preserve">
-    <value>ToolStripSeparator2</value>
-  </data>
-  <data name="&gt;&gt;OfflineModeToolStripMenuItem2.Name" xml:space="preserve">
-    <value>OfflineModeToolStripMenuItem2</value>
-  </data>
-  <data name="&gt;&gt;DLSS1ToolStripMenuItem.Name" xml:space="preserve">
-    <value>DLSS1ToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;ExtractResourceToolStripMenuItem1.Name" xml:space="preserve">
-    <value>ExtractResourceToolStripMenuItem1</value>
-  </data>
-  <data name="AutoBackupToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="ExtractResourceToolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
     <value>160, 22</value>
   </data>
-  <data name="&gt;&gt;ClearConsoleToolStripMenuItem.Name" xml:space="preserve">
-    <value>ClearConsoleToolStripMenuItem</value>
+  <data name="ExtractResourceToolStripMenuItem2.Text" xml:space="preserve">
+    <value>Extract Resource</value>
   </data>
-  <data name="&gt;&gt;ToolStripSeparator11.Name" xml:space="preserve">
-    <value>ToolStripSeparator11</value>
-  </data>
-  <data name="&gt;&gt;RestoreBackupToolStripMenuItem.Name" xml:space="preserve">
-    <value>RestoreBackupToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;RemoveAllToolStripMenuItem.Name" xml:space="preserve">
-    <value>RemoveAllToolStripMenuItem</value>
-  </data>
-  <data name="ConsoleBox.TabIndex" type="System.Int32, mscorlib">
-    <value>102</value>
-  </data>
-  <data name="&gt;&gt;ScanButton.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="AutoBackupToolStripMenuItem.Text" xml:space="preserve">
-    <value>Auto Backup</value>
-  </data>
-  <data name="ConsoleBox.Text" xml:space="preserve">
-    <value />
-  </data>
-  <data name="SaveLogFileToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
-  </data>
-  <data name="OfflineModeToolStripMenuItem2.Text" xml:space="preserve">
-    <value>Offline Mode</value>
-  </data>
-  <data name="NewVersionHeader.Width" type="System.Int32, mscorlib">
-    <value>85</value>
-  </data>
-  <data name="&gt;&gt;ClearConsoleToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ExtractResourceToolStripMenuItem.Name" xml:space="preserve">
-    <value>ExtractResourceToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;ToolStripSeparator1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="FilePathList.Size" type="System.Drawing.Size, System.Drawing">
-    <value>760, 479</value>
-  </data>
-  <data name="DLSS1ToolStripMenuItem.Text" xml:space="preserve">
-    <value>DLSS 1</value>
-  </data>
-  <data name="&gt;&gt;FilePathList.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ListView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="ConsoleMenu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>161, 132</value>
   </data>
   <data name="&gt;&gt;ConsoleMenu.Name" xml:space="preserve">
     <value>ConsoleMenu</value>
   </data>
-  <data name="ShowConsoleToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="&gt;&gt;ConsoleMenu.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ConsoleBox.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Cascadia Mono, 10pt</value>
+  </data>
+  <data name="ConsoleBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 42</value>
+  </data>
+  <data name="ConsoleBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>758, 477</value>
+  </data>
+  <data name="ConsoleBox.TabIndex" type="System.Int32, mscorlib">
+    <value>102</value>
+  </data>
+  <data name="ConsoleBox.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ConsoleBox.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="ConsoleBox.WordWrap" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;ConsoleBox.Name" xml:space="preserve">
+    <value>ConsoleBox</value>
+  </data>
+  <data name="&gt;&gt;ConsoleBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ConsoleBox.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;ConsoleBox.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <metadata name="MainMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>172, 17</value>
+  </metadata>
+  <data name="OfflineModeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>160, 22</value>
   </data>
-  <data name="RemoveAllToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="OfflineModeToolStripMenuItem.Text" xml:space="preserve">
+    <value>Offline Mode</value>
+  </data>
+  <data name="ToolStripSeparator9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>157, 6</value>
+  </data>
+  <data name="AutoBackupToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>160, 22</value>
   </data>
-  <data name="&gt;&gt;DirectStorageToolStripMenuItem2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="AutoBackupToolStripMenuItem.Text" xml:space="preserve">
+    <value>Auto Backup</value>
   </data>
-  <data name="&gt;&gt;CurrentVersionHeader.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="ReplaceButton.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;DLSS4ToolStripMenuItem1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="DLSS4ToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 22</value>
-  </data>
-  <data name="&gt;&gt;ShowConsoleToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;MainMenu.Name" xml:space="preserve">
-    <value>MainMenu</value>
-  </data>
-  <data name="ReplaceButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>764, 23</value>
-  </data>
-  <data name="DeleteBackupToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="ForceReplaceToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>160, 22</value>
   </data>
-  <data name="&gt;&gt;DeleteBackupToolStripMenuItem.Name" xml:space="preserve">
-    <value>DeleteBackupToolStripMenuItem</value>
+  <data name="ForceReplaceToolStripMenuItem.Text" xml:space="preserve">
+    <value>Force Replace</value>
   </data>
-  <data name="FilePathList.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
+  <data name="ToolStripSeparator6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>157, 6</value>
   </data>
-  <data name="ShowConsoleToolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="NVIDIADLSS1ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="NVIDIADLSS1ToolStripMenuItem.Text" xml:space="preserve">
+    <value>DLSS 1</value>
+  </data>
+  <data name="NVIDIADLSS4ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="NVIDIADLSS4ToolStripMenuItem.Text" xml:space="preserve">
+    <value>DLSS 4</value>
+  </data>
+  <data name="ExtractResourceToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>160, 22</value>
   </data>
-  <data name="&gt;&gt;CurrentVersionHeader.Name" xml:space="preserve">
-    <value>CurrentVersionHeader</value>
+  <data name="ExtractResourceToolStripMenuItem.Text" xml:space="preserve">
+    <value>Extract Resource</value>
   </data>
-  <data name="&gt;&gt;NVIDIADLSS1ToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="ToolStripSeparator4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>157, 6</value>
   </data>
-  <data name="RemoveToolStripMenuItem.Text" xml:space="preserve">
-    <value>Remove</value>
-  </data>
-  <data name="BackupVersionHeader.Text" xml:space="preserve">
-    <value>Backup</value>
+  <data name="ShowConsoleToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 22</value>
   </data>
   <data name="ShowConsoleToolStripMenuItem1.Text" xml:space="preserve">
     <value>Show Console</value>
@@ -573,68 +501,20 @@
   <data name="MainMenu.Size" type="System.Drawing.Size, System.Drawing">
     <value>161, 132</value>
   </data>
-  <data name="FilePathList.LabelWrap" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="BackupVersionHeader.Width" type="System.Int32, mscorlib">
-    <value>85</value>
-  </data>
-  <data name="ToolStripSeparator9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>157, 6</value>
-  </data>
-  <data name="ForceReplaceToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
-  </data>
-  <data name="&gt;&gt;DLSS4ToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="ScanButton.Text" xml:space="preserve">
-    <value>Scan Drive/Folder...</value>
+  <data name="&gt;&gt;MainMenu.Name" xml:space="preserve">
+    <value>MainMenu</value>
   </data>
   <data name="&gt;&gt;MainMenu.Type" xml:space="preserve">
     <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="NVIDIADLSS1ToolStripMenuItem.Text" xml:space="preserve">
-    <value>DLSS 1</value>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
   </data>
-  <data name="FilePathList.TabIndex" type="System.Int32, mscorlib">
-    <value>101</value>
-  </data>
-  <data name="OfflineModeToolStripMenuItem1.Text" xml:space="preserve">
-    <value>Offline Mode</value>
-  </data>
-  <data name="&gt;&gt;ShowConsoleToolStripMenuItem1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="ConsoleBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>758, 477</value>
-  </data>
-  <data name="ToolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>157, 6</value>
-  </data>
-  <data name="OfflineModeToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
-  </data>
-  <data name="&gt;&gt;ConsoleBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="ClearConsoleToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
-  </data>
-  <data name="&gt;&gt;ConsoleBox.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;NVIDIADLSS1ToolStripMenuItem.Name" xml:space="preserve">
-    <value>NVIDIADLSS1ToolStripMenuItem</value>
-  </data>
-  <data name="ConsoleMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>161, 132</value>
-  </data>
-  <data name="&gt;&gt;ShowConsoleToolStripMenuItem1.Name" xml:space="preserve">
-    <value>ShowConsoleToolStripMenuItem1</value>
-  </data>
-  <data name="&gt;&gt;OfflineModeToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>784, 561</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -3635,187 +3515,271 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIABAAA=
 </value>
   </data>
-  <data name="&gt;&gt;DirectStorageToolStripMenuItem1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>640, 480</value>
   </data>
-  <data name="NewVersionHeader.Text" xml:space="preserve">
-    <value>Replacer</value>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
   </data>
-  <data name="&gt;&gt;ToolStripSeparator9.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;DLSS1ToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="DLSS1ToolStripMenuItem1.Text" xml:space="preserve">
-    <value>DLSS 1</value>
-  </data>
-  <data name="FileListMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>161, 254</value>
-  </data>
-  <data name="&gt;&gt;ToolStripSeparator11.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ToolStripSeparator3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="AutoBackupToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
-  </data>
-  <data name="DirectStorageToolStripMenuItem1.Text" xml:space="preserve">
-    <value>DirectStorage</value>
-  </data>
-  <data name="&gt;&gt;DirectStorageToolStripMenuItem.Name" xml:space="preserve">
-    <value>DirectStorageToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;ExtractResourceToolStripMenuItem1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="ToolStripSeparator11.Size" type="System.Drawing.Size, System.Drawing">
-    <value>157, 6</value>
-  </data>
-  <data name="ScanButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
-  <data name="ToolStripSeparator6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>157, 6</value>
-  </data>
-  <data name="ShowConsoleToolStripMenuItem.Text" xml:space="preserve">
-    <value>Show Console</value>
-  </data>
-  <data name="ScanButton.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;ReplaceButton.Name" xml:space="preserve">
-    <value>ReplaceButton</value>
-  </data>
-  <data name="&gt;&gt;RemoveToolStripMenuItem.Name" xml:space="preserve">
-    <value>RemoveToolStripMenuItem</value>
-  </data>
-  <data name="ToolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>157, 6</value>
-  </data>
-  <data name="&gt;&gt;FileListMenu.Name" xml:space="preserve">
-    <value>FileListMenu</value>
-  </data>
-  <data name="&gt;&gt;OfflineModeToolStripMenuItem.Name" xml:space="preserve">
-    <value>OfflineModeToolStripMenuItem</value>
-  </data>
-  <data name="DirectStorageToolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 22</value>
-  </data>
-  <data name="DirectStorageToolStripMenuItem.Text" xml:space="preserve">
-    <value>DirectStorage</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>DLSS Replacer</value>
   </data>
   <data name="&gt;&gt;PathHeader.Name" xml:space="preserve">
     <value>PathHeader</value>
   </data>
-  <data name="ConsoleBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 42</value>
+  <data name="&gt;&gt;PathHeader.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="ScanButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>764, 23</value>
+  <data name="&gt;&gt;CurrentVersionHeader.Name" xml:space="preserve">
+    <value>CurrentVersionHeader</value>
   </data>
-  <data name="ConsoleBox.WordWrap" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="&gt;&gt;CurrentVersionHeader.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;DeleteBackupToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;NewVersionHeader.Name" xml:space="preserve">
+    <value>NewVersionHeader</value>
+  </data>
+  <data name="&gt;&gt;NewVersionHeader.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;BackupVersionHeader.Name" xml:space="preserve">
+    <value>BackupVersionHeader</value>
+  </data>
+  <data name="&gt;&gt;BackupVersionHeader.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TypeHeader.Name" xml:space="preserve">
+    <value>TypeHeader</value>
+  </data>
+  <data name="&gt;&gt;TypeHeader.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;OfflineModeToolStripMenuItem1.Name" xml:space="preserve">
+    <value>OfflineModeToolStripMenuItem1</value>
+  </data>
+  <data name="&gt;&gt;OfflineModeToolStripMenuItem1.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="ScanButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 10</value>
+  <data name="&gt;&gt;ToolStripSeparator10.Name" xml:space="preserve">
+    <value>ToolStripSeparator10</value>
   </data>
-  <data name="ToolStripSeparator3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>157, 6</value>
-  </data>
-  <data name="&gt;&gt;ToolStripSeparator6.Type" xml:space="preserve">
+  <data name="&gt;&gt;ToolStripSeparator10.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ToolStripSeparator3.Name" xml:space="preserve">
-    <value>ToolStripSeparator3</value>
-  </data>
-  <data name="&gt;&gt;ConsoleBox.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;AutoBackupToolStripMenuItem1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ExtractResourceToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ScanButton.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="ToolStripSeparator7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>157, 6</value>
-  </data>
-  <data name="DLSS4ToolStripMenuItem.Text" xml:space="preserve">
-    <value>DLSS 4</value>
-  </data>
-  <data name="PathHeader.Text" xml:space="preserve">
-    <value>Path</value>
   </data>
   <data name="&gt;&gt;AutoBackupToolStripMenuItem1.Name" xml:space="preserve">
     <value>AutoBackupToolStripMenuItem1</value>
   </data>
-  <data name="&gt;&gt;FileListMenu.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;AutoBackupToolStripMenuItem1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="ExtractResourceToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 22</value>
+  <data name="&gt;&gt;ForceReplaceToolStripMenuItem1.Name" xml:space="preserve">
+    <value>ForceReplaceToolStripMenuItem1</value>
   </data>
-  <data name="CurrentVersionHeader.Text" xml:space="preserve">
-    <value>Current</value>
+  <data name="&gt;&gt;ForceReplaceToolStripMenuItem1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;DLSS4ToolStripMenuItem1.Name" xml:space="preserve">
-    <value>DLSS4ToolStripMenuItem1</value>
+  <data name="&gt;&gt;ToolStripSeparator5.Name" xml:space="preserve">
+    <value>ToolStripSeparator5</value>
   </data>
-  <data name="&gt;&gt;ScanButton.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;ToolStripSeparator5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="NVIDIADLSS1ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 22</value>
+  <data name="&gt;&gt;RemoveToolStripMenuItem.Name" xml:space="preserve">
+    <value>RemoveToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;RemoveToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;RemoveAllToolStripMenuItem.Name" xml:space="preserve">
+    <value>RemoveAllToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;RemoveAllToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ToolStripSeparator1.Name" xml:space="preserve">
+    <value>ToolStripSeparator1</value>
+  </data>
+  <data name="&gt;&gt;ToolStripSeparator1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;RestoreBackupToolStripMenuItem.Name" xml:space="preserve">
+    <value>RestoreBackupToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;RestoreBackupToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;CreateBackupToolStripMenuItem.Name" xml:space="preserve">
+    <value>CreateBackupToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;CreateBackupToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DeleteBackupToolStripMenuItem.Name" xml:space="preserve">
+    <value>DeleteBackupToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;DeleteBackupToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ToolStripSeparator7.Name" xml:space="preserve">
+    <value>ToolStripSeparator7</value>
+  </data>
+  <data name="&gt;&gt;ToolStripSeparator7.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ExtractResourceToolStripMenuItem1.Name" xml:space="preserve">
+    <value>ExtractResourceToolStripMenuItem1</value>
+  </data>
+  <data name="&gt;&gt;ExtractResourceToolStripMenuItem1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DLSS1ToolStripMenuItem.Name" xml:space="preserve">
+    <value>DLSS1ToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;DLSS1ToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DLSS4ToolStripMenuItem.Name" xml:space="preserve">
+    <value>DLSS4ToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;DLSS4ToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ToolStripSeparator2.Name" xml:space="preserve">
+    <value>ToolStripSeparator2</value>
+  </data>
+  <data name="&gt;&gt;ToolStripSeparator2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ShowConsoleToolStripMenuItem.Name" xml:space="preserve">
+    <value>ShowConsoleToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;ShowConsoleToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ShowConsoleToolStripMenuItem2.Name" xml:space="preserve">
+    <value>ShowConsoleToolStripMenuItem2</value>
+  </data>
+  <data name="&gt;&gt;ShowConsoleToolStripMenuItem2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ToolStripSeparator3.Name" xml:space="preserve">
+    <value>ToolStripSeparator3</value>
+  </data>
+  <data name="&gt;&gt;ToolStripSeparator3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;SaveLogFileToolStripMenuItem.Name" xml:space="preserve">
     <value>SaveLogFileToolStripMenuItem</value>
   </data>
-  <data name="ReplaceButton.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 528</value>
+  <data name="&gt;&gt;SaveLogFileToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="ToolStripSeparator5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>157, 6</value>
+  <data name="&gt;&gt;ClearConsoleToolStripMenuItem.Name" xml:space="preserve">
+    <value>ClearConsoleToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;ClearConsoleToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ToolStripSeparator8.Name" xml:space="preserve">
+    <value>ToolStripSeparator8</value>
+  </data>
+  <data name="&gt;&gt;ToolStripSeparator8.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;OfflineModeToolStripMenuItem2.Name" xml:space="preserve">
+    <value>OfflineModeToolStripMenuItem2</value>
+  </data>
+  <data name="&gt;&gt;OfflineModeToolStripMenuItem2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ToolStripSeparator11.Name" xml:space="preserve">
+    <value>ToolStripSeparator11</value>
+  </data>
+  <data name="&gt;&gt;ToolStripSeparator11.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ExtractResourceToolStripMenuItem2.Name" xml:space="preserve">
+    <value>ExtractResourceToolStripMenuItem2</value>
+  </data>
+  <data name="&gt;&gt;ExtractResourceToolStripMenuItem2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DLSS1ToolStripMenuItem1.Name" xml:space="preserve">
+    <value>DLSS1ToolStripMenuItem1</value>
+  </data>
+  <data name="&gt;&gt;DLSS1ToolStripMenuItem1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DLSS4ToolStripMenuItem1.Name" xml:space="preserve">
+    <value>DLSS4ToolStripMenuItem1</value>
+  </data>
+  <data name="&gt;&gt;DLSS4ToolStripMenuItem1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;OfflineModeToolStripMenuItem.Name" xml:space="preserve">
+    <value>OfflineModeToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;OfflineModeToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;ToolStripSeparator9.Name" xml:space="preserve">
     <value>ToolStripSeparator9</value>
   </data>
+  <data name="&gt;&gt;ToolStripSeparator9.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;AutoBackupToolStripMenuItem.Name" xml:space="preserve">
+    <value>AutoBackupToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;AutoBackupToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ForceReplaceToolStripMenuItem.Name" xml:space="preserve">
+    <value>ForceReplaceToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;ForceReplaceToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;ToolStripSeparator6.Name" xml:space="preserve">
     <value>ToolStripSeparator6</value>
   </data>
-  <data name="&gt;&gt;DirectStorageToolStripMenuItem2.Name" xml:space="preserve">
-    <value>DirectStorageToolStripMenuItem2</value>
+  <data name="&gt;&gt;ToolStripSeparator6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="RestoreBackupToolStripMenuItem.Text" xml:space="preserve">
-    <value>Restore Backup</value>
+  <data name="&gt;&gt;ExtractResourceToolStripMenuItem.Name" xml:space="preserve">
+    <value>ExtractResourceToolStripMenuItem</value>
   </data>
-  <data name="ForceReplaceToolStripMenuItem1.Text" xml:space="preserve">
-    <value>Force Replace</value>
+  <data name="&gt;&gt;ExtractResourceToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="OfflineModeToolStripMenuItem.Text" xml:space="preserve">
-    <value>Offline Mode</value>
+  <data name="&gt;&gt;NVIDIADLSS1ToolStripMenuItem.Name" xml:space="preserve">
+    <value>NVIDIADLSS1ToolStripMenuItem</value>
   </data>
-  <data name="DirectStorageToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 22</value>
+  <data name="&gt;&gt;NVIDIADLSS1ToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <metadata name="MainMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>172, 17</value>
-  </metadata>
-  <metadata name="ConsoleMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>329, 17</value>
-  </metadata>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="FileListMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>11, 16</value>
-  </metadata>
+  <data name="&gt;&gt;NVIDIADLSS4ToolStripMenuItem.Name" xml:space="preserve">
+    <value>NVIDIADLSS4ToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;NVIDIADLSS4ToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ToolStripSeparator4.Name" xml:space="preserve">
+    <value>ToolStripSeparator4</value>
+  </data>
+  <data name="&gt;&gt;ToolStripSeparator4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ShowConsoleToolStripMenuItem1.Name" xml:space="preserve">
+    <value>ShowConsoleToolStripMenuItem1</value>
+  </data>
+  <data name="&gt;&gt;ShowConsoleToolStripMenuItem1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>MainWindow</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>
