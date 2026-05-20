@@ -19,6 +19,30 @@ Public Class MainWindow
     Private CurrentResourceName As String = String.Empty
 
     Private ReadOnly URL_OnlineResource As String = "https://github.com/sYnapZiX/DLSSReplacer/blob/main/DLSSReplacer/Resources/"
+    Private Function IncompatibleGame(Path As String) As Boolean
+        Dim ExecutableList As String() = Directory.GetFiles(IO.Path.GetDirectoryName(Path), "*.exe", SearchOption.TopDirectoryOnly)
+        For Each Executable As String In ExecutableList
+            If Executable.Contains("DD2") OrElse
+               Executable.Contains("Dead Rising Deluxe Remaster") OrElse
+               Executable.Contains("DevilMayCry5") OrElse
+               Executable.Contains("EXOPRIMAL") OrElse
+               Executable.Contains("MonsterHunterRise") OrElse
+               Executable.Contains("MonsterHunterRiseDemo") OrElse
+               Executable.Contains("MonsterHunterWilds") OrElse
+               Executable.Contains("PRAGMATA") OrElse
+               Executable.Contains("re2") OrElse
+               Executable.Contains("re3") OrElse
+               Executable.Contains("re4") OrElse
+               Executable.Contains("re7") OrElse
+               Executable.Contains("re8") OrElse
+               Executable.Contains("re9") OrElse
+               Executable.Contains("REResistance") OrElse
+               Executable.Contains("StreetFighter6") Then
+                Return True
+            End If
+        Next
+        Return False
+    End Function
     Private Function ProtectedGame(Path As String) As Boolean
         Return Path.Contains("Call of Duty") OrElse
                Path.Contains("Call Of Duty") OrElse
@@ -33,7 +57,20 @@ Public Class MainWindow
                Path.Contains("cod26") OrElse
                Path.Contains("cod27") OrElse
                Path.Contains("cod28") OrElse
-               Path.Contains("cod29")
+               Path.Contains("cod29") OrElse
+               Path.Contains("Biohazard") OrElse
+               Path.Contains("BIOHAZARD") OrElse
+               Path.Contains("Dead Rising") OrElse
+               Path.Contains("Devil May Cry") OrElse
+               Path.Contains("Dragons Dogma") OrElse
+               Path.Contains("Exoprimal") OrElse
+               Path.Contains("MonsterHunter") OrElse
+               Path.Contains("Onimusha") OrElse
+               Path.Contains("Pragmata") OrElse
+               Path.Contains("PRAGMATA") OrElse
+               Path.Contains("Resident Evil") OrElse
+               Path.Contains("RESIDENT EVIL") OrElse
+               Path.Contains("StreetFighter")
     End Function
     Private Function ValidDirectory(Path As String) As Boolean
         Return Not Path.EndsWith(":\") AndAlso
@@ -282,7 +319,9 @@ Public Class MainWindow
                 Dim DLLBackupVersionInfo As FileVersionInfo = FileVersionInfo.GetVersionInfo(DLLFile & BackupExtension)
                 Dim DLLBackupVersionInfoString As String = DLLBackupVersionInfo.FileVersion.Replace(",", ".")
                 If Language = "de" Then
-                    If ProtectedGame(DLLFile) Then
+                    If IncompatibleGame(DLLFile) Then
+                        FilePathList.Items.Add(DLLFile).SubItems.AddRange({CurrentVersion, "Inkompatibel", DLLBackupVersionInfoString, Type})
+                    ElseIf ProtectedGame(DLLFile) Then
                         FilePathList.Items.Add(DLLFile).SubItems.AddRange({CurrentVersion, "Geschützt", DLLBackupVersionInfoString, Type})
                     ElseIf CurrentVersion = IncludedVersion Then
                         FilePathList.Items.Add(DLLFile).SubItems.AddRange({CurrentVersion, "Keiner", DLLBackupVersionInfoString, Type})
@@ -290,7 +329,9 @@ Public Class MainWindow
                         FilePathList.Items.Add(DLLFile).SubItems.AddRange({CurrentVersion, IncludedVersion, DLLBackupVersionInfoString, Type})
                     End If
                 Else
-                    If ProtectedGame(DLLFile) Then
+                    If IncompatibleGame(DLLFile) Then
+                        FilePathList.Items.Add(DLLFile).SubItems.AddRange({CurrentVersion, "Incompatible", DLLBackupVersionInfoString, Type})
+                    ElseIf ProtectedGame(DLLFile) Then
                         FilePathList.Items.Add(DLLFile).SubItems.AddRange({CurrentVersion, "Protected", DLLBackupVersionInfoString, Type})
                     ElseIf CurrentVersion = IncludedVersion Then
                         FilePathList.Items.Add(DLLFile).SubItems.AddRange({CurrentVersion, "None", DLLBackupVersionInfoString, Type})
@@ -300,7 +341,9 @@ Public Class MainWindow
                 End If
             Else
                 If Language = "de" Then
-                    If ProtectedGame(DLLFile) Then
+                    If IncompatibleGame(DLLFile) Then
+                        FilePathList.Items.Add(DLLFile).SubItems.AddRange({CurrentVersion, "Inkompatibel", "Keines", Type})
+                    ElseIf ProtectedGame(DLLFile) Then
                         FilePathList.Items.Add(DLLFile).SubItems.AddRange({CurrentVersion, "Geschützt", "Keines", Type})
                     ElseIf CurrentVersion = IncludedVersion Then
                         FilePathList.Items.Add(DLLFile).SubItems.AddRange({CurrentVersion, "Keiner", "Keines", Type})
@@ -308,7 +351,9 @@ Public Class MainWindow
                         FilePathList.Items.Add(DLLFile).SubItems.AddRange({CurrentVersion, IncludedVersion, "Keines", Type})
                     End If
                 Else
-                    If ProtectedGame(DLLFile) Then
+                    If IncompatibleGame(DLLFile) Then
+                        FilePathList.Items.Add(DLLFile).SubItems.AddRange({CurrentVersion, "Incompatible", "None", Type})
+                    ElseIf ProtectedGame(DLLFile) Then
                         FilePathList.Items.Add(DLLFile).SubItems.AddRange({CurrentVersion, "Protected", "None", Type})
                     ElseIf CurrentVersion = IncludedVersion Then
                         FilePathList.Items.Add(DLLFile).SubItems.AddRange({CurrentVersion, "None", "None", Type})
@@ -322,6 +367,8 @@ Public Class MainWindow
     End Sub
     Private Sub ReplaceDLL(Resource As Byte(), ResourceName As String, ResourceDLL As String, DLLName As String, CurrentColumn As ListViewItem.ListViewSubItem, IncludedColumn As ListViewItem.ListViewSubItem, BackupColumn As ListViewItem.ListViewSubItem)
         If IncludedColumn.Text = "Geschützt" OrElse
+           IncludedColumn.Text = "Incompatible" OrElse
+           IncludedColumn.Text = "Inkompatibel" OrElse
            IncludedColumn.Text = "Protected" Then Exit Sub
         CurrentResource = Resource
         CurrentResourceName = ResourceName
